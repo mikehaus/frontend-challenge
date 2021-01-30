@@ -1,7 +1,43 @@
 
+.image-card-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .image-card {
   border-radius: 4px;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  background-color: black;
   height: 337px;
   width: 230px;
+}
+
+.image-card-heading {
+  width: 228px;
+  height: 52px;
+  color: rgb(51, 51, 51);
+  font-size: 24px;
+  font-family: Roboto-Bold;
+  font-weight: bold;
+  line-height: 26px;
+}
+
+.image-card-subheading {
+  width: 161px;
+  height: 26px;
+  color: rgb(99, 114, 125);
+  font-size: 14px;
+  font-family: Roboto-Regular;
+  font-weight: normal;
+  line-height: 26px;
+}
+
+.image-card-hover-box {
+  background: transparent;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
+  height: 526px;
+  width: 262px;
 }

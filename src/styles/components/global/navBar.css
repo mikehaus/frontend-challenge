@@ -1,22 +1,23 @@
 
 .nav-bar {
+  position: fixed;
   display: grid;
   grid-template-columns: 64px 200px;
-  position: fixed;
-  z-index: 1000;
   top: 0;
   left: 0;
   margin: 0;
   padding: 0;
   box-shadow: 0 2px 8px 0px rgba(58, 58, 58, .23);
   width: 100vw;
-  height: 72px
+  height: 72px;
+  z-index: 9999;
 }
 
 .logo {
   grid-column: 1;
   position: relative;
   left: 0;
+  z-index: 10000;
   width: 56px;
   height: 100%;
   background-color: #2245e1;
@@ -25,6 +26,7 @@
 .heading {
   color: rgb(51, 51, 51);
   margin-left: 20px;
+  z-index: 10000;
   font-size: 24px;
   grid-column: 2;
   height: 28px;

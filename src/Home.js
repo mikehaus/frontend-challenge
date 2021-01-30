@@ -1,7 +1,10 @@
 import './Home.css';
 import { useFetchAllMovies } from './rest';
+import { useState, useEffect } from 'react';
 import NavBar from './components/global/navBar';
 import MainContainer from './components/global/mainContainer';
+import MainHeader from './components/global/mainHeader';
+import ImageCardTopGrid from './components/home/imageCardTopGrid';
 
 /**
  * You have the option to use either REST
@@ -13,18 +16,19 @@ import MainContainer from './components/global/mainContainer';
  * GraphQL.
  **/
 
-const MovieList = () => {
-  const { data, loading } = useFetchAllMovies();
+const MovieList = (props) => {
+  
+  console.log(props.data)
 
   return (
     <div>
-      <h1>Popular Movies</h1>
+      <h1>Movies</h1>
 
-      {loading ? (
+      {props.loading ? (
         <div>Loading movies...</div>
       ) : (
         <ol>
-          {data.map(movie => (
+          {props.data.map(movie => (
             <li key={movie.id}>
               {movie.title}
               <ul>
@@ -44,10 +48,32 @@ const MovieList = () => {
 
 const Home = () => {
 
+  const { data, loading } = useFetchAllMovies();
+  const [topFive, setTopFive] = useState(null);
+  const [movieList, setMovieList] = useState(null)
+
+  // useEffect to create top five list for top
+  useEffect(() => {
+    let movieData = data;
+    movieData.sort((a, b) => (a.rating > b.rating) ? 1 : -1);
+    setTopFive(movieData.slice(0, 5));
+    for (let i = 0; i < 6; i++) {
+      movieData.shift()
+    }
+    setMovieList(movieData)
+  }, [topFive])
+
   return (
     <div className="home-container">
       <NavBar />
-      <MainContainer />
+      { loading ? (
+        <div>Loading Movies...</div>
+      ) : (
+        <div>
+          <MainContainer data={data}/>
+          <ImageCardTopGrid topFive={topFive} />
+        </div>
+      )}
     </div>
   );
 };

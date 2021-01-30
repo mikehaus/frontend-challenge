@@ -12,6 +12,7 @@ const MainContainer = () => {
     <div className="main-container">
       <MainHeader topic="Movies"
                   title="Top 5" />
+      
     </div>
   );
 }

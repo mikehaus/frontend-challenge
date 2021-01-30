@@ -1,8 +1,9 @@
 import React from 'react';
+import '../../styles/components/global/imageCard.css';
 
 const ImageCard = (props) => {
   return (
-    <div>
+    <div className='image-card'>
       <img src={props.imgURL} />
     </div>
   );
