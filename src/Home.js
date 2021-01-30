@@ -1,5 +1,7 @@
 import './Home.css';
 import { useFetchAllMovies } from './rest';
+import NavBar from './components/global/navBar';
+import MainContainer from './components/global/mainContainer';
 
 /**
  * You have the option to use either REST
@@ -44,7 +46,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <MovieList />
+      <NavBar />
+      <MainContainer />
     </div>
   );
 };
