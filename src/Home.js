@@ -10,11 +10,12 @@ import { useFetchAllMovies } from './rest';
  * Use `graphql/useAllMoviesQuery` instead for
  * GraphQL.
  **/
-const Home = () => {
+
+const MovieList = () => {
   const { data, loading } = useFetchAllMovies();
 
   return (
-    <div className="home-container">
+    <div>
       <h1>Popular Movies</h1>
 
       {loading ? (
@@ -35,6 +36,15 @@ const Home = () => {
           ))}
         </ol>
       )}
+    </div>
+  );
+}
+
+const Home = () => {
+
+  return (
+    <div className="home-container">
+      <MovieList />
     </div>
   );
 };

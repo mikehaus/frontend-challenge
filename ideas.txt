@@ -1,0 +1,91 @@
+Custom components vs library
+
+Possible library options:
+Material UI - really close to look and feel
+
+Material has layering, boxes, containers, built in shading, cards
+
+
+
+------- Design ---------
+
+Components Needed ->
+
+Global:
+TopNav - Nav bar with title of page and logo
+MainHeader - Topic grayed out: Subhead black (for top of sections)
+ImageCard - Shows movie Poster (displays movie poster)
+CardGrid - Displays set of cards
+FilterButton - Sort By title, Filter dropdown
+
+
+Home:
+CardGrid - Displays top 5 movies
+  
+    TopMovieCard - contains the following
+    functionality:
+      onHover - Move out (change verticality)/Display Button
+    sub components:
+      MovieDetails - Header, desc
+
+-------- Section - browseByGenre ---------
+
+SectionHeader - smaller top cap text, bottom larger text
+
+CardGrid - 
+  GenreCard - Gradient with Type
+
+Section - browseAll
+
+----- SectionHeader - Browse sub: by Genre -------
+FilterButton
+
+MovieGrid
+
+================ Filter By Genre section (GenreGrid) (Step 2)
+
+Grid with:
+  back (onClick go back)
+  MainHeader
+
+================= MovieDetailView
+
+Grid: BackButton/MainHeader - Last View name
+
+Section: MovieDetail
+
+MovieDetail - Displays movie info
+  LEFT:  BigImageCard
+  
+  RIGHT: 
+    rating (blue star blue text) / 10
+    BigHeader: Movie Title (TitleHeader component) (movie year)
+    Subhead
+
+    Director label
+    Description
+
+----- Cast Section
+
+CastImageCard -
+  photo or icon default
+  Actor Name
+  playing as subtitle
+         
+  
+
+
+Extras:
+How visually to represent 2 fields Filter
+Client-side vs server-side pagination
+Lazy Load images
+Graph of some kind
+Tracking functions
+Add comments to detail view - view and create comments (add update delete one-to-many)
+Custom Feature - Possibly Hover text popover, talk to speak?
+
+
+
+------- Questions --------
+
+How to determine order of top 5 by rating
