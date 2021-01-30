@@ -1,10 +1,14 @@
 
 .main-header {
-  margin-bottom: 50px;
+  margin-bottom: 23px;
+  font-size: 32px;
+  font-weight: bold;
+  height: 38px;
+  width: 200px;
 }
 
 .main-header-left {
-  color: #BDBDBD;
+  color: #bbbaba;
 }
 
 .main-header-right {

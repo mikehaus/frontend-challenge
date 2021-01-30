@@ -5,6 +5,8 @@ import MainHeader from './mainHeader';
 
 // Component Main Container
 // Allows us to place global Components and load into main
+
+// TODO: ADD DOTS TO BACKGROUND
 const MainContainer = () => {
   return (
     <div className="main-container">
