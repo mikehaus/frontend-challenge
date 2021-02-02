@@ -6,12 +6,17 @@ $header-black: rgb(57, 57, 57);
 $header-gray: #bbbaba;
 $subheader-gray: rgb(99, 114, 125);
 $bg-white: #d8d8d8;
+$box-shadow-poster: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+$box-shadow-nav: 0px 2px 8px 0px rgba(58, 58, 58, 0.23);
 
 // MARK: Global Fonts ---------
 $main-font-family: "Roboto";
 $main-bold-family: "Roboto-bold";
 $bold: bold;
 $thin: 300;
+
+// MARK: Global Visual -----------
+$border-radius: 4px;
 
 // MARK: Media Queries - Credit Lukasz Florczak for this system
 
@@ -75,8 +80,6 @@ $screen-xl-min: 1200px;
     margin: 20px auto; 
   }
 }
-
-
 
 // MARK: HEADINGS ----------------------
 .main-heading {
@@ -274,6 +277,8 @@ p {
 }
 
 .sub-text {
+  color: $subheader-gray;
+
   @include rwd {
     font-size: 16px;
   }
@@ -290,4 +295,62 @@ p {
 
 // MARK: COMPONENT-SPECIFIC --------------
 
+
+
 // FLEX GRID
+
+.flex-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+// Poster Card
+
+.poster-card {
+  width: auto;
+  height: auto;
+  border-radius: $border-radius;
+  object-fit: cover;
+  box-shadow: $box-shadow-poster;
+
+  @include rwd {
+    min-height: 337px;
+    max-height: 527px;
+    min-width: 230px;
+    max-width: 360px;
+  }
+  @include lg {
+    min-height: 337px;
+    max-height: 527px;
+    min-width: 230px;
+    max-width: 360px;
+  }
+  @include md {
+    min-height: 234px;
+    max-height: 337px;
+    min-width: 160px;
+    max-width: 230px;
+  }
+  @include sm {
+    min-height: 168px;
+    max-height: 191px;
+    min-width: 100;
+    max-width: 130;
+  }
+}
+
+// UI
+
+.drop-down {
+  color: $header-gray;
+  border-radius: $border-radius;
+  width: 164px;
+  height: 40px;
+}
+
+.nav-bar {
+  width: 100vw;
+  height: 72px;
+}
