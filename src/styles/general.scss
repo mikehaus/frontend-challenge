@@ -1,0 +1,293 @@
+// MARK: Global Colors -------
+$blue: rgb(34, 69, 225);
+$white: rgb(255, 255, 255); 
+$black: rgb(0, 0, 0);
+$header-black: rgb(57, 57, 57);
+$header-gray: #bbbaba;
+$subheader-gray: rgb(99, 114, 125);
+$bg-white: #d8d8d8;
+
+// MARK: Global Fonts ---------
+$main-font-family: "Roboto";
+$main-bold-family: "Roboto-bold";
+$bold: bold;
+$thin: 300;
+
+// MARK: Media Queries - Credit Lukasz Florczak for this system
+
+// Small tablets and Smart Phones
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px') {
+      @content;
+  }
+}
+
+
+// MARK: Formatting -------------------
+
+.container {
+  margin: 10px 0;
+
+  @include sm {
+    margin: 20px 0;
+  }
+  @include md {
+    padding: 20px auto;
+  }
+  @include lg {
+    margin: 20px auto; 
+  }
+}
+
+
+
+// MARK: HEADINGS ----------------------
+.main-heading {
+  display: inline-block;
+  font-family: $main-bold-family;
+  font-weight: $bold;
+  margin: 10px 0;
+
+  @include rwd {
+    font-size: 32px;
+  }
+  @include lg {
+    font-size: 30px;
+  }
+  @include md {
+    font-size: 28px;
+  }
+  @include sm {
+    font-size: 24px;
+  }
+
+  &--left {
+    @extend .main-heading;
+    color: $header-gray;
+  }
+
+  &--right {
+    @extend .main-heading;
+    color: $header-black;
+  }
+}
+
+.section-heading {
+  font-family: $main-bold-family;
+  font-weight: $bold;
+  margin: 10px 0;
+
+  &--top {
+    @extend .section-heading;
+    color: $subheader-gray;
+
+    @include rwd {
+      font-size: 24px;
+    }
+    @include lg {
+      font-size: 24px;
+    }
+    @include md {
+      font-size: 20px;
+    }
+    @include sm {
+      font-size: 18px;
+    }
+  }
+
+  &--bottom {
+    @extend .section-heading;
+    color: $subheader-gray;
+    margin: 20px 0;
+
+    @include rwd {
+      font-size: 57px;
+    }
+    @include lg {
+      font-size: 48px;
+    }
+    @include md {
+      font-size: 36px;
+    }
+    @include sm {
+      font-size: 30px;
+    }
+  }
+}
+
+.movie-detail-heading {
+  
+  &--top {
+    @extend .movie-detail-heading;
+ 
+    margin: 20px 0;
+    display: inline-block;
+    @include rwd {
+      font-size: 56px;
+    }
+    @include lg {
+      font-size: 48px;
+    }
+    @include md {
+      font-size: 40px;
+    }
+    @include sm {
+      font-size: 36px;
+    }
+    
+    &--l {
+      @extend .movie-detail-heading--top;
+      color: $header-black;
+    }
+
+    &--r {
+      @extend .movie-detail-heading--top;
+      color: $header-gray;
+    }
+  }
+  
+  &--subheading {
+    @extend .movie-detail-heading;
+
+    color: $header-gray; 
+    @include rwd {
+      font-size: 24px;
+    }
+    @include lg {
+      font-size: 24px;
+    }
+    @include md {
+      font-size: 22px;
+    }
+    @include sm {
+      font-size: 20px;
+    }
+  }
+
+  &--director {
+    @extend .movie-detail-heading;
+
+    color: $header-black;
+    @include rwd {
+      font-size: 16px;
+    }
+    @include lg {
+      font-size: 16px;
+    }
+    @include md {
+      font-size: 14px;
+    }
+    @include sm {
+      font-size: 12px;
+    }
+  }
+
+  &--desc {
+    @extend .movie-detail-heading;
+
+    color: $header-gray;
+    @include rwd {
+      font-size: 20px;
+    }
+    @include lg {
+      font-size: 20px;
+    }
+    @include md {
+      font-size: 18px;
+    }
+    @include sm {
+      font-size: 16px;
+    }
+  }
+
+  &--cast {
+    color: $header-black;
+
+    @include rwd {
+      font-size: 32px;
+    }
+    @include lg {
+      font-size: 32px;
+    }
+    @include md {
+      font-size: 28px;
+    }
+    @include sm {
+      font-size: 24px;
+    }
+  }
+}
+
+
+// MARK: TEXT -------------------
+
+p {
+  @include rwd {
+    font-size: 18px;
+  }
+  @include lg {
+    font-size: 18px;
+  }
+  @include md {
+    font-size: 16px;
+  }
+  @include sm {
+    font-size: 16px;
+  }
+}
+
+.sub-text {
+  @include rwd {
+    font-size: 16px;
+  }
+  @include lg {
+    font-size: 16px;
+  }
+  @include md {
+    font-size: 12px;
+  }
+  @include sm {
+    font-size: 12px;
+  }
+}
+
+// MARK: COMPONENT-SPECIFIC --------------
+
+// FLEX GRID
