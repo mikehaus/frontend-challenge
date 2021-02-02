@@ -1,3 +1,5 @@
+// can't use because of incompatibility
+
 // MARK: Global Colors -------
 $blue: rgb(34, 69, 225);
 $white: rgb(255, 255, 255); 
@@ -304,6 +306,10 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+ol {
+  list-style: none; 
 }
 
 // Poster Card
