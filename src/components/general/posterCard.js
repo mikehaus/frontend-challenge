@@ -14,7 +14,7 @@ const PosterCard = (props) => {
   useEffect(() => {
     setTitle(props.title);
     setGenres(props.genres);
-  }, [input]);
+  }, []);
 
   return (
     <div>
@@ -24,3 +24,5 @@ const PosterCard = (props) => {
     </div>
   );
 }
+
+export default PosterCard;

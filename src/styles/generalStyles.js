@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import style from 'styled-components';
-import device from './mediaQuery';
 
 export const colors = {
   blue: 'rgb(34, 69, 225)',
@@ -29,6 +28,27 @@ const borderRadius = '4px';
 export const Container = styled.div `
   margin: 20px 60px;
 `;
+
+const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '2560px'
+}
+
+const device = {
+  mobileS: `(max-width: ${size.mobileS})`,
+  mobileM: `(max-width: ${size.mobileM})`,
+  mobileL: `(max-width: ${size.mobileL})`,
+  tablet: `(max-width: ${size.tablet})`,
+  laptop: `(max-width: ${size.laptop})`,
+  laptopL: `(max-width: ${size.laptopL})`,
+  desktop: `(max-width: ${size.desktop})`,
+  desktopL: `(max-width: ${size.desktop})`
+};
 
 
 // HEADERS
@@ -68,6 +88,7 @@ export const MainHeaderLeft = styled(MainHeader) `
 `;
 
 export const MainHeaderRight = styled(MainHeader) `
+  margin-left: 5px;
   color: ${colors.headerBlack};
 `
 
@@ -147,65 +168,50 @@ export const CardGrid = styled.div `
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100vw - 120px;
+  margin: 0 auto;
 `;
 
 export const CardList = styled.div `
   list-style: none;
-`
+`;
 
 const card = styled.div `
-  width: height * .628;
-  height: auto;
+  display: flex;
   border-radius: ${borderRadius};
   box-shadow: ${boxShadows.boxShadowPoster};
 `
 
 export const PosterCard = styled(card) `
-  object-fit: cover;
-  background: black;
-  margin: 20px 10px;
+  margin: 30px 15px;
 
-  @media ${device.desktopL} {
-    min-height: 337px;
-    max-height: 527px;
-    min-width: 230px;
-    max-width: 360px;
+  @media ${device.desktopL} { 
+    height: 527px;
+    width: 350px;
   }
   @media ${device.desktop} {
-    min-height: 337px;
-    max-height: 527px;
-    min-width: 230px;
-    max-width: 360px;
+    height: 337px;
+    width: 225px;
   }
   @media ${device.laptopL} {
-    min-height: 234px;
-    max-height: 337px;
-    min-width: 160px;
-    max-width: 230px;
+    height: 337px;
+    width: 225px;
   }
   @media ${device.laptop} {
-    min-height: 234px;
-    max-height: 337px;
-    min-width: 160px;
-    max-width: 230px;
+    height: 234px;
+    width: 150px;
   }
   @media ${device.mobileL} {
-    min-height: 168px;
-    max-height: 191px;
-    min-width: 100;
-    max-width: 130;
+    height: 168px;
+    width: 95px;
   }
   @media ${device.mobileM} {
-    min-height: 168px;
-    max-height: 191px;
-    min-width: 100;
-    max-width: 130;
+    height: 168px;
+    width: 95px;
   }
   @media ${device.mobileS} {
-    min-height: 168px;
-    max-height: 191px;
-    min-width: 100;
-    max-width: 130;
+    height: 168px;
+    width: 95px;
   }
-`
+`;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import * as StyledCompsGeneral from '../../styles/generalStyles';
 import getTopFiveMovies from '../../graphql/topFiveQuery';
+import PosterCard from '../general/posterCard';
 
 const ImageList = ({ loading, data }) => {
   
@@ -13,7 +14,7 @@ const ImageList = ({ loading, data }) => {
           <StyledCompsGeneral.CardGrid>
               {topFive.map(movie => (
                 <li key={movie.id}>
-                      <StyledCompsGeneral.PosterCard url={movie.posterPath} title={movie.title} genres={movie.genres} />
+                      <PosterCard url={movie.posterPath} title={movie.title} genres={movie.genres} />
                 </li>
               ))}
           </StyledCompsGeneral.CardGrid>
@@ -30,7 +31,7 @@ const TopFive = () => {
 
   return (
     <div>
-      <StyledCompsGeneral.MainHeaderLeft>Movies: </StyledCompsGeneral.MainHeaderLeft>
+      <StyledCompsGeneral.MainHeaderLeft>Movies:</StyledCompsGeneral.MainHeaderLeft>
       <StyledCompsGeneral.MainHeaderRight>Top Five</StyledCompsGeneral.MainHeaderRight>
       <ImageList loading={loading} data={data} />
     </div>

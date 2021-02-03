@@ -45,7 +45,6 @@ const Home = () => {
     <div>
       <NavBar />
       <StyledCompsGeneral.Container>
-        <h1>Popular Movies</h1>
         {loading ? (
           <div>Loading movies...</div>
         ) : (
