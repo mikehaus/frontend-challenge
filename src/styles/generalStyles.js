@@ -34,7 +34,7 @@ export const Container = styled.div `
 // HEADERS
 const Header = styled.h1 `
   display: inline-block;
-  font-family: ${fonts.mainBoldFamily};
+  font-family: ${fonts.mainFontFamily};
   font-weight: ${fonts.bold};
   margin: 10px 0;
 `
@@ -155,7 +155,7 @@ export const CardList = styled.div `
 `
 
 const card = styled.div `
-  width: auto;
+  width: height * .628;
   height: auto;
   border-radius: ${borderRadius};
   box-shadow: ${boxShadows.boxShadowPoster};
@@ -163,8 +163,8 @@ const card = styled.div `
 
 export const PosterCard = styled(card) `
   object-fit: cover;
-  background-image: url(${props => props.url || null});
   background: black;
+  margin: 20px 10px;
 
   @media ${device.desktopL} {
     min-height: 337px;

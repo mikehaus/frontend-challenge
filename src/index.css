@@ -13,6 +13,8 @@
 		padding: 0;
 	}
 
-
+	ol {
+		list-style: none;
+	}
 
 

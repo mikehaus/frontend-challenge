@@ -1,8 +1,9 @@
 import './Home.css';
 import { useFetchAllMovies } from './rest';
 import styled from 'styled-components';
-import * as StyledComps from './styles/generalStyles';
+import * as StyledCompsGeneral from './styles/generalStyles';
 import NavBar from './components/general/navBar';
+import TopFive from './components/home/topFive';
 /**
  * You have the option to use either REST
  * or GraphQL, whichever you prefer.
@@ -43,14 +44,14 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <StyledComps.Container>
+      <StyledCompsGeneral.Container>
         <h1>Popular Movies</h1>
         {loading ? (
           <div>Loading movies...</div>
         ) : (
-          null
+          <TopFive />
         )}
-      </StyledComps.Container>
+      </StyledCompsGeneral.Container>
     </div>
   );
 };
