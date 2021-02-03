@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 // media styled components
 
 const size = {
@@ -11,7 +11,7 @@ const size = {
   desktop: '2560px'
 }
 
-export const device = {
+const device = {
   mobileS: `(min-width: ${size.mobileS})`,
   mobileM: `(min-width: ${size.mobileM})`,
   mobileL: `(min-width: ${size.mobileL})`,
@@ -22,12 +22,19 @@ export const device = {
   desktopL: `(min-width: ${size.desktop})`
 };
 
+export default device;
+
 
 /* ! USAGE
  * const Page = styled.div`
  * margin: auto;
  * font-family: "sans-serif";
  * text-align: center;
+
+  ${props => props.primary && css`
+    background: palevioletred;
+    color: white;
+  `}
 
  * @media ${device.laptop} { 
  *   max-width: 800px;
