@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import style from 'styled-components';
 
 export const colors = {
   blue: 'rgb(34, 69, 225)',
@@ -7,13 +6,12 @@ export const colors = {
   black: 'rgb(0, 0, 0)',
   headerBlack: 'rgb(57, 57, 57)',
   headerGray: '#bbbaba',
-  subheaderGray: 'rgb(99, 114, 125)',
+  subheaderGray: 'rgb(187, 186, 186)',
   bgWhite: '#d8d8d8',
 }
 
 const boxShadows = {
   boxShadowPoster: '0px 2px 8px 0px rgba(0, 0, 0, 0.5)',
-  boxShadowNav: '0px 2px 8px 0px rgba(58, 58, 58, 0.23)',
 }
 
 const fonts = {
@@ -38,8 +36,7 @@ const size = {
   laptopL: '1440px',
   desktop: '2560px'
 }
-
-const device = {
+export const device = {
   mobileS: `(max-width: ${size.mobileS})`,
   mobileM: `(max-width: ${size.mobileM})`,
   mobileL: `(max-width: ${size.mobileL})`,
@@ -53,18 +50,19 @@ const device = {
 
 // HEADERS
 const Header = styled.h1 `
-  display: inline-block;
   font-family: ${fonts.mainFontFamily};
   font-weight: ${fonts.bold};
   margin: 10px 0;
 `
 
 const MainHeader = styled(Header) `
+  display: inline-block;
+
   @media ${device.desktopL} {
     font-size: 32px;
   }
   @media ${device.desktop} {
-    font-size: 30px;
+    font-size: 32px;
   }
   @media ${device.laptopL} {
     font-size: 28px;
@@ -92,7 +90,13 @@ export const MainHeaderRight = styled(MainHeader) `
   color: ${colors.headerBlack};
 `
 
-export const SectionHeaderTop = styled(Header) `
+export const SectionHeaderTop = styled.h1 `
+  display: block;
+  font-family: ${fonts.mainFontFamily};
+  font-weight: ${fonts.bold};
+  color: ${colors.subheaderGray};
+  margin: 0px;
+
   @media ${device.desktopL} {
     font-size: 24px;
   }
@@ -116,7 +120,13 @@ export const SectionHeaderTop = styled(Header) `
   }
 `;
 
-export const SectionHeaderBot = styled(Header) `
+export const SectionHeaderBot = styled.h1 `
+  display: inline-block;
+  font-family: ${fonts.mainFontFamily};
+  font-weight: ${fonts.bold};
+  color: ${colors.headerBlack};
+  margin: 5px 0px 20px 0px;
+
   @media ${device.desktopL} {
     font-size: 32px;
   }
@@ -164,6 +174,49 @@ export const MainText = styled.div `
   }
 `;
 
+export const CardList = styled.div `
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+`;
+
+export const PosterCardImg = styled.div `
+display: flex;
+border-radius: 4px;
+box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+margin: 10px;
+
+@media ${device.desktopL} { 
+  height: 527px;
+  width: 350px;
+}
+@media ${device.desktop} {
+  height: 337px;
+  width: 223px;
+}
+@media ${device.laptopL} {
+  height: 337px;
+  width: 223px;
+}
+@media ${device.laptop} {
+  height: 234px;
+  width: 155px;
+}
+@media ${device.mobileL} {
+  height: 168px;
+  width: 111px;
+}
+@media ${device.mobileM} {
+  height: 168px;
+  width: 111px;
+}
+@media ${device.mobileS} {
+  height: 168px;
+  width: 111px;
+}
+`;
+
 export const CardGrid = styled.div `
   display: flex;
   flex-direction: row;
@@ -171,47 +224,4 @@ export const CardGrid = styled.div `
   justify-content: space-between;
   width: 100vw - 120px;
   margin: 0 auto;
-`;
-
-export const CardList = styled.div `
-  list-style: none;
-`;
-
-const card = styled.div `
-  display: flex;
-  border-radius: ${borderRadius};
-  box-shadow: ${boxShadows.boxShadowPoster};
-`
-
-export const PosterCard = styled(card) `
-  margin: 30px 15px;
-
-  @media ${device.desktopL} { 
-    height: 527px;
-    width: 350px;
-  }
-  @media ${device.desktop} {
-    height: 337px;
-    width: 225px;
-  }
-  @media ${device.laptopL} {
-    height: 337px;
-    width: 225px;
-  }
-  @media ${device.laptop} {
-    height: 234px;
-    width: 150px;
-  }
-  @media ${device.mobileL} {
-    height: 168px;
-    width: 95px;
-  }
-  @media ${device.mobileM} {
-    height: 168px;
-    width: 95px;
-  }
-  @media ${device.mobileS} {
-    height: 168px;
-    width: 95px;
-  }
 `;

@@ -1,26 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import * as StyleComponentsGeneral from '../../styles/generalStyles';
+import { PosterCardImg } from '../../styles/generalStyles';
+
 
 const PosterCard = (props) => {
 
-  const [title, setTitle] = useState(null);
-  const [genres, setGenres] = useState(null);
-
   let posterPath = props.url;
-  console.log(posterPath);
-
-  useEffect(() => {
-    setTitle(props.title);
-    setGenres(props.genres);
-  }, []);
 
   return (
     <div>
-      <StyleComponentsGeneral.PosterCard>
+      <PosterCardImg>
         <img src={posterPath} />
-      </StyleComponentsGeneral.PosterCard>
+      </PosterCardImg>
     </div>
   );
 }
