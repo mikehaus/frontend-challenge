@@ -24,7 +24,7 @@ const fonts = {
 const borderRadius = '4px';
 
 export const Container = styled.div `
-  margin: 20px 60px;
+  margin: 0px 60px;
 `;
 
 const size = {
@@ -52,7 +52,7 @@ export const device = {
 const Header = styled.h1 `
   font-family: ${fonts.mainFontFamily};
   font-weight: ${fonts.bold};
-  margin: 10px 0;
+  margin: 0;
 `
 
 const MainHeader = styled(Header) `
@@ -131,13 +131,13 @@ export const SectionHeaderBot = styled.h1 `
     font-size: 32px;
   }
   @media ${device.desktop} {
-    font-size: 30px;
+    font-size: 32px;
   }
   @media ${device.laptopL} {
-    font-size: 28px;
+    font-size: 32px;
   }
   @media ${device.laptop} {
-    font-size: 24px;
+    font-size: 32px;
   }
   @media ${device.mobileL} {
     font-size: 22px;

@@ -13,6 +13,7 @@ const Nav = styled.div `
   background-color: white;
   box-shadow: 0px 2px 8px 0px rgba(58, 58, 58, 0.23);
   margin: 0 0 60px 0;
+  z-index: 50;
 `;
 
 const LogoBox = styled.div `

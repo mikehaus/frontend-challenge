@@ -13,6 +13,7 @@ const TextCard = styled.div `
   border-radius: 4px;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
   color: white;
+  margin: 20px 0;
   justify-content: center;
   align-items: center;
   font-family: Roboto;

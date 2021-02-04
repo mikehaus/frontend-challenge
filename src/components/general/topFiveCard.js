@@ -78,6 +78,7 @@ const PosterCardBorder = styled.div `
 const InfoBox = styled.div `
   position: relative;
   margin: 15px 10px;
+  z-index: 2;
 `;
 
 const HeadingBox = styled.div `
@@ -105,13 +106,13 @@ const CardHeading = styled.p `
     font-size: 20px;
   }
   @media ${device.mobileL} {
-    font-size: 20px;
+    font-size: 16px;
   }
   @media ${device.mobileM} {
-    font-size: 18px;
+    font-size: 16px;
   }
   @media ${device.mobileS} {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -119,31 +120,85 @@ const StarImage = styled.div `
   display: inline-block;
   position: absolute;
   top: 0px;
-  right: 30px;
   margin: 5px;
-  width: 11px;
-  height: 11px;
   color: ${colors.blue};
+
+  @media ${device.desktopL} { 
+    width: 11px;
+    height: 11px;
+    right: 25px;
+  }
+  @media ${device.desktop} {
+    width: 11px;
+    height: 11px;
+    right: 25px;
+  }
+  @media ${device.laptopL} {
+    width: 11px;
+    height: 11px;
+    right: 25px;
+  }
+  @media ${device.laptop} {
+    width: 11px;
+    height: 11px;
+    right: 22px;
+  }
+  @media ${device.mobileL} {
+    width: 7px;
+    height: 7px;
+    right: 22px;
+  }
+  @media ${device.mobileM} {
+    width: 7px;
+    height: 7px;
+    right: 22px;
+  }
+  @media ${device.mobileS} {
+    width: 7px;
+    height: 7px;
+    right: 22px;
+  }
 `;
 
 const RatingText = styled.p `
-  font-size: 16px;
   position: absolute;
   top: 0;
-  right: 10px;
   display: inline-block;
   font-weight: bold;
   margin: 5px;
   width: 11px;
   height: 11px;
+  right: 5px;
   color: ${colors.blue};
+
+  @media ${device.desktopL} { 
+    font-size: 16px;
+  }
+  @media ${device.desktop} {
+    font-size: 16px;
+  }
+  @media ${device.laptopL} {
+    font-size: 16px;
+  }
+  @media ${device.laptop} {
+    font-size: 16px;
+  }
+  @media ${device.mobileL} {
+    font-size: 14px;
+  }
+  @media ${device.mobileM} {
+    font-size: 12px;
+  }
+  @media ${device.mobileS} {
+    font-size: 12px;
+  }
 `;
 
 const GenreTextBlock = styled.p `
   display: block;
   color: ${colors.subheaderGray};
   font-size: 14px;
-  width: 80%;
+  width: 90%;
   margin-bottom: 5px;
 
   /*@media ${device.desktopL} { 
@@ -173,8 +228,6 @@ const TopFivePosterCard = (props) => {
 
   const [title, setTitle] = useState(null);
   const [voteAvg, setVoteAvg] = useState(null);
-
-  console.log(props.genres);
 
   const posterPath = props.url;
   const genreStr = props.genres.join(', ');

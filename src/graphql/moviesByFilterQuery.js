@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 const QUERY_MOVIES_BY_FILTER = gql`
-  query allMovies ( $filter: String! ) {
+  query getMoviesByFilter ( $filter: String! ) {
     allMovies (sortOrder: $filter) {
       id
       title
@@ -13,9 +13,10 @@ const QUERY_MOVIES_BY_FILTER = gql`
 
 
 const GetMoviesByFilter = ({ filter }) => {
-  const { data, loading, error } = useQuery(QUERY_MOVIES_BY_FILTER, {
+
+  const { data, error, loading } = useQuery(QUERY_MOVIES_BY_FILTER, {
     fetchPolicy: 'cache-and-network',
-    variables: {filter}
+    variables: { filter }
   });
 
   const result = data?.allMovies ?? [];

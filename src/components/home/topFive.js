@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { device, MainHeaderLeft, MainHeaderRight, Container }from '../../styles/generalStyles';
+import { MainHeaderLeft, MainHeaderRight, Container }from '../../styles/generalStyles';
 import getTopFiveMovies from '../../graphql/topFiveQuery';
 import PosterCardGrid from '../general/posterCardGrid';
 
