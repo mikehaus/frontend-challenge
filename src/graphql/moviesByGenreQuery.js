@@ -62,7 +62,7 @@ query allMovies ($filter: { genres: $genre }) {
 const getMoviesByGenre = ({genre}) => {
   const { data, loading, error } = useQuery(GET_GENRE_MOVIES, {
     fetchPolicy: 'cache-and-network',
-    variables: genre
+    variables: { genre }
   });
 
   const result = data?.allMovies ?? [];

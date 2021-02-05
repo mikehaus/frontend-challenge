@@ -15,7 +15,7 @@ const PosterCardGrid = ({ loading, data, isTopFive }) => {
               {movies.map(movie => (
                 <li key={movie.id}> 
                   { isTopFive ? (
-                    <TopFivePosterCard url={movie.posterPath} title={movie.title} genres={movie.genres} voteAvg={movie.voteAverage}/>
+                    <TopFivePosterCard url={movie.posterPath} title={movie.title} genres={movie.genres} id={movie.id} voteAvg={movie.voteAverage}/>
                   ) : (
                     <PosterCardImg url={movie.posterPath} />
                   )

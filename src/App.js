@@ -1,4 +1,6 @@
 import Home from './Home';
+import GenreView from './components/genre/genreView';
+import MovieDetailView from './components/mov-detail/movieDetailView';
 import { Route, Switch } from 'react-router-dom';
 
 /**
@@ -26,6 +28,8 @@ const App = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/genre" exact component={GenreView} />
+      <Route path="/detail" exact component={MovieDetailView} />
     </Switch>
   );
 };

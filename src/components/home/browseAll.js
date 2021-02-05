@@ -10,12 +10,13 @@ const BrowseMargin = styled.div `
   margin: 60px 0;
 `;
 
+// TODO: add lazy loading
+
 const BrowseAll = () => {
 
-  const [ moviesFiltered, setMoviesFiltered ] = useState(null);
-
-  const filter = "popularity";
-  const { data, error, loading } = GetMoviesByFilter(filter);
+  let filter = 'popularity';
+  const { data, error, loading } = GetMoviesByFilter({filter});
+  let movies = data;
 
   return(
     <div>
@@ -23,6 +24,7 @@ const BrowseAll = () => {
         <BrowseMargin>
           <SectionHeaderTop>Movies</SectionHeaderTop>
           <SectionHeaderBot>Browse All</SectionHeaderBot>
+          <PosterCardGrid loading={loading} data={movies} />
         </BrowseMargin>
       </Container>
     </div>

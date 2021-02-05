@@ -3,16 +3,17 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { PosterCardImg, colors, device } from '../../styles/generalStyles';
 import Star from '../../assets/Star.svg';
-
+import { Link, withRouter } from 'react-router-dom';
 
 // TODO: Button Uniform along bottom
+// TODO: Truncate Header 3 lines for device query text size
 const DetailsButton = styled.button `
   position: relative;
   display: none;
   align-items: center;
   background: ${colors.blue};
   color: white;
-  margin: 10px auto;
+  margin: auto auto 0 auto;
   width: 100%;
   height: 47px;
   border-radius: 4px;
@@ -83,13 +84,15 @@ const InfoBox = styled.div `
 
 const HeadingBox = styled.div `
   display: inline-block;
-  width: 60%;
+  overflow: hidden;
+  width: 70%;
+  overflow: hidden;
 `
 
-const CardHeading = styled.p `
+const CardHeading = styled.h2 `
   position: relative;
-  font-family: Roboto;
   display: inline;
+  font-family: Roboto;
   font-weight: bold;
   color: ${colors.headerBlack};
 
@@ -200,6 +203,7 @@ const GenreTextBlock = styled.p `
   font-size: 14px;
   width: 90%;
   margin-bottom: 5px;
+  margin-top: 5px;
 
   /*@media ${device.desktopL} { 
     font-size: 14px;
@@ -228,6 +232,7 @@ const TopFivePosterCard = (props) => {
 
   const [title, setTitle] = useState(null);
   const [voteAvg, setVoteAvg] = useState(null);
+  const [id, setId] = useState(null);
 
   const posterPath = props.url;
   const genreStr = props.genres.join(', ');
@@ -235,6 +240,7 @@ const TopFivePosterCard = (props) => {
   useEffect(() => {
     setTitle(props.title);
     setVoteAvg(props.voteAvg);
+    setId(props.id)
   }, []);
 
   return (
@@ -258,9 +264,11 @@ const TopFivePosterCard = (props) => {
           <GenreTextBlock>
             {genreStr}
           </GenreTextBlock>
-          <DetailsButton>
-            View Details
-          </DetailsButton>
+          <Link to="/detail">
+            <DetailsButton>
+              View Details
+            </DetailsButton>
+          </Link>
         </InfoBox>
       </PosterCardBorder>
     </div>

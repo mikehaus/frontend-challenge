@@ -3,7 +3,7 @@ import { gql } from 'apollo-boost';
 
 const GET_TOP_FIVE = gql`
   query allMovies {
-    allMovies (sortField: "voteAverage", sortOrder: "popularity", page: 1, perPage: 5) {
+    allMovies (sortField: "voteAverage", sortOrder: "popularity", page: 0, perPage: 5) {
       id
       posterPath
       title
