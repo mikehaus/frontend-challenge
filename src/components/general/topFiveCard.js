@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import { PosterCardImg, colors, device } from '../../styles/generalStyles';
+import { colors, device } from '../../styles/generalStyles';
 import Star from '../../assets/Star.svg';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -25,7 +25,46 @@ const DetailsButton = styled.button `
   &:focus {
     outline: none;
   }
-`
+`;
+
+const PosterCardImg = styled.div `
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+
+  @media ${device.desktopL} { 
+    height: 527px;
+    width: 350px;
+  }
+  @media ${device.desktop} {
+    height: 337px;
+    width: 223px;
+  }
+  @media ${device.laptopL} {
+    height: 337px;
+    width: 223px;
+  }
+  @media ${device.laptop} {
+    height: 234px;
+    width: 155px;
+  }
+  @media ${device.mobileL} {
+    height: 168px;
+    width: 111px;
+  }
+  @media ${device.mobileM} {
+    height: 168px;
+    width: 111px;
+  }
+  @media ${device.mobileS} {
+    height: 168px;
+    width: 111px;
+  }
+`;
+
+
+
 const PosterCardBorder = styled.div `
   background-color: transparent;
   margin: 20px 0px 5px 0px;
@@ -125,6 +164,8 @@ const StarImage = styled.div `
   top: 0px;
   margin: 5px;
   color: ${colors.blue};
+  width: 11px;
+  height: 11px;
 
   @media ${device.desktopL} { 
     width: 11px;
@@ -149,17 +190,17 @@ const StarImage = styled.div `
   @media ${device.mobileL} {
     width: 7px;
     height: 7px;
-    right: 22px;
+    right: 25px;
   }
   @media ${device.mobileM} {
     width: 7px;
     height: 7px;
-    right: 22px;
+    right: 25px;
   }
   @media ${device.mobileS} {
     width: 7px;
     height: 7px;
-    right: 22px;
+    right: 25px;
   }
 `;
 
@@ -204,28 +245,6 @@ const GenreTextBlock = styled.p `
   width: 90%;
   margin-bottom: 5px;
   margin-top: 5px;
-
-  /*@media ${device.desktopL} { 
-    font-size: 14px;
-  }
-  @media ${device.desktop} {
-    font-size: 14px;
-  }
-  @media ${device.laptopL} {
-    font-size: 14px;
-  }
-  @media ${device.laptop} {
-    font-size: 14px;
-  }
-  @media ${device.mobileL} {
-    font-size: 12px;
-  }
-  @media ${device.mobileM} {
-    font-size: 12px;
-  }
-  @media ${device.mobileS} {
-    font-size: 12px;
-  }*/
 `;
 
 const TopFivePosterCard = (props) => {
@@ -247,7 +266,7 @@ const TopFivePosterCard = (props) => {
     <div>
       <PosterCardBorder>
         <PosterCardImg>
-          <img src={posterPath} />
+          <img src={posterPath} alt="poster" />
         </PosterCardImg>
         <InfoBox>
           <HeadingBox>

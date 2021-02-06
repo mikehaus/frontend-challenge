@@ -13,7 +13,7 @@ const TopFive = () => {
       <Container>
         <MainHeaderLeft>Movies:</MainHeaderLeft>
         <MainHeaderRight>Top Five</MainHeaderRight>
-        <PosterCardGrid loading={loading} data={data} isTopFive={true} />
+        <PosterCardGrid loading={loading} data={data} error={error} isTopFive={true} />
       </Container>
     </div>
   );

@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 const GET_TOP_FIVE = gql`
-  query allMovies {
+  query topFiveMovies {
     allMovies (sortField: "voteAverage", sortOrder: "popularity", page: 0, perPage: 5) {
       id
       posterPath

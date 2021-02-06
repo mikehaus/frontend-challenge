@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, SectionHeaderTop, SectionHeaderBot, CardGrid, device } from '../../styles/generalStyles';
+import { Link } from 'react-router-dom';
 
 const BrowseByGenreBG = styled.div `
   width: 100vw;
@@ -51,6 +52,14 @@ const TextCard = styled.div `
   }
 `;
 
+const LinkNoStyle = styled(Link) `
+  text-decoration: none;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+  }
+`;
+
 const BrowseByGenre = () => {
   return (
     <div>
@@ -59,10 +68,38 @@ const BrowseByGenre = () => {
         <SectionHeaderTop>Browse</SectionHeaderTop>
         <SectionHeaderBot>by Genre</SectionHeaderBot>
         <CardGrid>
-          <TextCard>Comedy</TextCard>
-          <TextCard>Action</TextCard>
-          <TextCard>Drama</TextCard>
-          <TextCard>True Crime</TextCard>
+          <LinkNoStyle to={{
+            pathname: '/genre',
+            genreProps: {
+              genre: 'Comedy'
+            }
+          }}>
+            <TextCard>Comedy</TextCard>
+          </LinkNoStyle>
+          <LinkNoStyle to={{
+            pathname: '/genre',
+            genreProps: {
+              genre: 'Action'
+            }
+          }}>
+            <TextCard>Action</TextCard>
+          </LinkNoStyle>
+          <LinkNoStyle to={{
+            pathname: '/genre',
+            genreProps: {
+              genre: 'Drama'
+            }
+          }}>
+            <TextCard>Drama</TextCard>
+          </LinkNoStyle>
+          <LinkNoStyle to={{
+            pathname: '/genre',
+            genreProps: {
+              genre: 'Crime'
+            }
+          }}>
+            <TextCard>True Crime</TextCard>
+          </LinkNoStyle>
         </CardGrid>
       </Container>
       </BrowseByGenreBG>

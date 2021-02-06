@@ -1,29 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-/*example:
-const GET_DOG_PHOTO = gql`
-  query Dog($breed: String!) {
-    dog(breed: $breed) {
-      id
-      displayImage
-    }
-  }
-`;
-
-function DogPhoto({ breed }) {
-  const { loading, error, data } = useQuery(GET_DOG_PHOTO, {
-    variables: { breed },
-  });
-
-  if (loading) return null;
-  if (error) return `Error! ${error}`;
-
-  return (
-    <img src={data.dog.displayImage} style={{ height: 100, width: 100 }} />
-  );
-}*/
-
 // goal is to create all the queries I need
 
 //Schema
@@ -48,21 +25,24 @@ type Movie {
 */
 
 const GET_GENRE_MOVIES = gql`
-query allMovies ($filter: { genres: $genre }) {
-  allMovies {
+query getMoviesByGenre ($genres: [String!]) {
+  allMovies(filter: { genres: $genres }) {
     id
     title
     posterPath
+    voteAverage
+    genres
   }
 }
 `;
 
 
 // TODO: DRY combine functions
-const getMoviesByGenre = ({genre}) => {
-  const { data, loading, error } = useQuery(GET_GENRE_MOVIES, {
+const GetMoviesByGenre = ({ genres }) => {
+
+  const { data, error, loading } = useQuery(GET_GENRE_MOVIES, {
     fetchPolicy: 'cache-and-network',
-    variables: { genre }
+    variables: { genres }
   });
 
   const result = data?.allMovies ?? [];
@@ -75,4 +55,4 @@ const getMoviesByGenre = ({genre}) => {
 };
 
 //module.exports = { getTopFive, getMovieById, getMoviesByFilter };
-export default getMoviesByGenre;
+export default GetMoviesByGenre;

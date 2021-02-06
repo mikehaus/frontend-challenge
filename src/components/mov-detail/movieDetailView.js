@@ -40,7 +40,7 @@ const MovieDetailView = () => {
             </BackBtn>
           </Link>
           <MainHeaderLeft>Movies: </MainHeaderLeft>
-          <MainHeaderRight>Comedy</MainHeaderRight>
+          <MainHeaderRight>Top 5</MainHeaderRight>
         </MenuFlex>
       </Container>
     </div>
