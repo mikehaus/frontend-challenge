@@ -42,9 +42,13 @@ const PosterCard = (props) => {
 
   let posterPath = props.url;
 
+  const displayModal = () => {
+    
+  }
+
   return (
     <div>
-      <PosterCardImg>
+      <PosterCardImg onClick={displayModal}>
         <img src={posterPath} alt="poster" />
       </PosterCardImg>
     </div>
