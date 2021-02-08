@@ -25,8 +25,8 @@ type Movie {
 */
 
 const GET_GENRE_MOVIES = gql`
-query getMoviesByGenre ($genres: [String!]) {
-  allMovies(filter: { genres: $genres }) {
+query getMoviesByGenre ($genres: [String!], $filter: String!) {
+  allMovies(filter: { genres: $genres }, sortField: $filter, sortOrder: "DESC") {
     id
     title
     posterPath
@@ -38,11 +38,11 @@ query getMoviesByGenre ($genres: [String!]) {
 
 
 // TODO: DRY combine functions
-const GetMoviesByGenre = ({ genres }) => {
+const GetMoviesByGenre = ({ genres, filter }) => {
 
   const { data, error, loading } = useQuery(GET_GENRE_MOVIES, {
     fetchPolicy: 'cache-and-network',
-    variables: { genres }
+    variables: { genres, filter }
   });
 
   const result = data?.allMovies ?? [];

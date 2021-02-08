@@ -52,7 +52,7 @@ const SortByDropDown = styled.select `
 
 const BrowseAll = () => {
 
-  const [ filter, setFilter ] = useState("popularity");
+  const [ filter, setFilter ] = useState("Popularity");
   const { data, error, loading } = GetMoviesByFilter({filter});
   let movies = data;
 
@@ -76,7 +76,7 @@ const BrowseAll = () => {
                 Sort by
               </SortByLabel>
               <SortByDropDown value={filter} onChange={handleSelect}>
-                <option value="popularity">Popularity</option>
+                <option value="Popularity">Popularity</option>
                 <option value="releaseDate">Release Date</option>
                 <option value="budget">Budget</option>
                 <option value="runtime">Runtime</option>

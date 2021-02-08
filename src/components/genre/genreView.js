@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import NavBar from '../general/navBar';
 import { Container, MainHeaderLeft, MainHeaderRight } from '../../styles/generalStyles';
@@ -8,49 +9,96 @@ import getMoviesByGenre from '../../graphql/moviesByGenreQuery';
 import PosterCardGrid from '../general/posterCardGrid';
 
 
-const MenuFlex = styled.div `
-  margin-top: 120px;
+const Menu = styled.div `
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background: white;
-`;
-
-const MenuSpacer = styled.div `
-
 `;
 
 const BackBtn = styled.div `
-  display: flex;
-  justify-content: center;
-  margin: 5px 10px 5px 0px;
+  display: inline;
+  margin: 0px 15px 5px 0px;
   width: 16px;
   height: 16px;
 `;
 
+const Headers = styled.div `
+  justify-self: flex-start;
+`;
+
+const SelectSection = styled.form `
+  display: flex;
+  justify-self: flex-end;
+  align-items: center;
+  font-family: "Roboto";
+  font-weight: normal;
+`;
+
+const SortByLabel = styled.h6 `
+  display: inline;
+  color: rgb(143, 154, 162);
+  font-size: 14px;
+  margin-right: 10px;
+`;
+
+const SortByDropDown = styled.select `
+  padding: 10px;
+  display: inline;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid rgb(228, 228, 228);
+  color: rgb(51, 51, 51);
+  height: 40px;
+  width: 164px;
+
+  &:after {
+    color: rgb(99, 114, 125);
+  }
+`;
 
 const GenreView = (props) => {
 
+  const [ filter, setFilter ] = useState("Popularity");
   let genres = []
   genres.push(props.location.genreProps.genre);
-  const { data, error, loading } = getMoviesByGenre({genres})
+  const { data, error, loading } = getMoviesByGenre({genres, filter})
   let movies = data;
+
+  const handleSelect = (event) => {
+    setFilter(event.target.value);
+    console.log(event.target.value);
+    movies = data;
+  }
 
   return(
     <div>
       <NavBar />
       <Container>
-        <MenuFlex>
-          <Link to="/">
-            <BackBtn>
-              <img src={BackArrow} alt='back' />
-            </BackBtn>
-          </Link>
-          <MainHeaderLeft>Movies: </MainHeaderLeft>
-          <MainHeaderRight>{props.location.genreProps.genre}</MainHeaderRight>
-        </MenuFlex>
+        <Menu>
+          <Headers>
+            <Link to="/">
+              <BackBtn>
+                <img src={BackArrow} alt='back' />
+              </BackBtn>
+            </Link>
+            <MainHeaderLeft>Movies: </MainHeaderLeft>
+            <MainHeaderRight>{props.location.genreProps.genre}</MainHeaderRight>
+          </Headers>
+          <SelectSection>
+            <SortByLabel>
+              Sort by
+            </SortByLabel>
+            <SortByDropDown value={filter} onChange={handleSelect}>
+              <option value="Popularity">Popularity</option>
+              <option value="releaseDate">Release Date</option>
+              <option value="budget">Budget</option>
+              <option value="runtime">Runtime</option>
+              <option value="voteCount">Vote Count</option>
+              <option value="voteAverage">Vote Score</option>
+            </SortByDropDown>
+          </SelectSection>
+        </Menu>
         <PosterCardGrid data={movies} error={error} loading={loading} />
       </Container>
     </div>
