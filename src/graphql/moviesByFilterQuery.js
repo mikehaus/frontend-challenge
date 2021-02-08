@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const QUERY_MOVIES_BY_FILTER = gql`
   query getMoviesByFilter ( $filter: String! ) {
-    allMovies (sortOrder: $filter) {
+    allMovies (sortField: $filter, sortOrder: "DESC") {
       id
       title
       posterPath
@@ -14,8 +14,6 @@ const QUERY_MOVIES_BY_FILTER = gql`
 
 
 const GetMoviesByFilter = ({ filter }) => {
-
-  const [ limit, setLimit ] = useState(10);
 
   const { data, error, loading, fetchMore } = useQuery(QUERY_MOVIES_BY_FILTER, {
     fetchPolicy: 'cache-and-network',
