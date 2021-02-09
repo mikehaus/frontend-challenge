@@ -29,7 +29,9 @@ const App = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/detail" exact component={MovieDetailView} />
+      <Route path="/detail/:id" exact render={({ match }) => { 
+        return <MovieDetailView /> 
+      }} />
       <Route path="/genre/:genre" exact render={({ match }) => {
         return <GenreView />
       }} />

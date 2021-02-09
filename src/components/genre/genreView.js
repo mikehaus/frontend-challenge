@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import NavBar from '../general/navBar';
 import { Container, MainHeaderLeft, MainHeaderRight } from '../../styles/generalStyles';
 import BackArrow from '../../assets/BackArrow.svg';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import getMoviesByGenre from '../../graphql/moviesByGenreQuery';
 import PosterCardGrid from '../general/posterCardGrid';
-import { useRouteMatch } from 'react-router-dom';
 import NotFound from '../../notFound';
 
 

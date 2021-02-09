@@ -2,20 +2,19 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 const GET_MOVIE_BY_ID = gql`
-query Movie (id: $id) {
-  Movie {
+query getMovieById ($id: ID!) {
+  Movie (id: $id) {
       id
       title
       posterPath
       voteAverage
       genres
-      releaseData
+      releaseDate
       director
       overview
       cast
     }
   }
-}
 `;
 
 const GetMovieById = ({id}) => {
@@ -33,4 +32,4 @@ const GetMovieById = ({id}) => {
   };
 }
 
-export default getMovieById;
+export default GetMovieById;

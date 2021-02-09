@@ -252,6 +252,7 @@ const TopFivePosterCard = (props) => {
   const [title, setTitle] = useState(null);
   const [voteAvg, setVoteAvg] = useState(null);
   const [id, setId] = useState(null);
+  const [idStr, setIdStr] = useState(null);
 
   const posterPath = props.url;
   const genreStr = props.genres.join(', ');
@@ -259,7 +260,8 @@ const TopFivePosterCard = (props) => {
   useEffect(() => {
     setTitle(props.title);
     setVoteAvg(props.voteAvg);
-    setId(props.id)
+    setId(props.id);
+    setIdStr(`/detail/${props.id}`);
   }, []);
 
   return (
@@ -283,12 +285,12 @@ const TopFivePosterCard = (props) => {
           <GenreTextBlock>
             {genreStr}
           </GenreTextBlock>
-          <Link to="/detail">
+          <Link to={`/detail/${id}`}>
             <DetailsButton>
               View Details
             </DetailsButton>
           </Link>
-        </InfoBox>
+          </InfoBox>
       </PosterCardBorder>
     </div>
   );

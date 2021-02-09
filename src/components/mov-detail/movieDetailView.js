@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import NavBar from '../general/navBar';
 import { Container, MainHeaderLeft, MainHeaderRight } from '../../styles/generalStyles';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import BackArrow from '../../assets/BackArrow.svg';
+import GetMovieById from '../../graphql/movieByIdQuery';
 
 const MenuFlex = styled.div `
   margin-top: 60px auto;
@@ -15,10 +16,6 @@ const MenuFlex = styled.div `
   background: white;
 `;
 
-const MenuSpacer = styled.div `
-
-`;
-
 const BackBtn = styled.div `
   display: flex;
   justify-content: center;
@@ -28,6 +25,12 @@ const BackBtn = styled.div `
 `;
 
 const MovieDetailView = () => {
+
+  let match = useRouteMatch('/detail/:id');
+  let id = match.params.id
+  const { data, error, loading } = GetMovieById({ id });
+  let movies = data;
+  console.log(movies);
 
   return(
     <div>
