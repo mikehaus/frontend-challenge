@@ -7,6 +7,8 @@ import BackArrow from '../../assets/BackArrow.svg';
 import { Link } from 'react-router-dom';
 import getMoviesByGenre from '../../graphql/moviesByGenreQuery';
 import PosterCardGrid from '../general/posterCardGrid';
+import { useRouteMatch } from 'react-router-dom';
+import NotFound from '../../notFound';
 
 
 const Menu = styled.div `
@@ -57,12 +59,17 @@ const SortByDropDown = styled.select `
   }
 `;
 
-const GenreView = (props) => {
+//const GenreView = (props) => {
+
+const GenreView = () => {
 
   const [ filter, setFilter ] = useState("Popularity");
-  let genres = []
-  genres.push(props.location.genreProps.genre);
-  const { data, error, loading } = getMoviesByGenre({genres, filter})
+  let genres = [];
+  let match = useRouteMatch('/genre/:genre');
+  console.log(match.params.genre);
+  //genres.push(props.location.genreProps.genre);
+  genres.push(match.params.genre);
+  const { data, error, loading } = getMoviesByGenre({genres, filter});
   let movies = data;
 
   const handleSelect = (event) => {
@@ -70,6 +77,8 @@ const GenreView = (props) => {
     console.log(event.target.value);
     movies = data;
   }
+
+  if (data.length == 0) return <NotFound />
 
   return(
     <div>
@@ -83,7 +92,8 @@ const GenreView = (props) => {
               </BackBtn>
             </Link>
             <MainHeaderLeft>Movies: </MainHeaderLeft>
-            <MainHeaderRight>{props.location.genreProps.genre}</MainHeaderRight>
+            {/*<MainHeaderRight>{props.location.genreProps.genre}</MainHeaderRight>*/}
+            <MainHeaderRight>{match.params.genre}</MainHeaderRight>
           </Headers>
           <SelectSection>
             <SortByLabel>

@@ -2,7 +2,7 @@ import Home from './Home';
 import GenreView from './components/genre/genreView';
 import MovieDetailView from './components/mov-detail/movieDetailView';
 import NotFound from './notFound';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useParams } from 'react-router-dom';
 
 /**
  * This function is used to simulate performance benchmarking.
@@ -30,7 +30,10 @@ const App = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/detail" exact component={MovieDetailView} />
-      <Route path="/genre" exact component={GenreView}/>
+      <Route path="/genre/:genre" exact render={({ match }) => {
+        return <GenreView />
+      }} />
+      {/*<Route path="/genre/:genre" render={} component={GenreView}/>*/}
       <Route component={NotFound} />
     </Switch>
   );

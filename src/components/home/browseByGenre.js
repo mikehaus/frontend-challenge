@@ -60,6 +60,14 @@ const LinkNoStyle = styled(Link) `
   }
 `;
 
+/*to={{
+            pathname: '/genre',
+            genreProps: {
+  genre: 'Comedy'
+}
+          }}
+*/
+
 const BrowseByGenre = () => {
   return (
     <div>
@@ -68,36 +76,16 @@ const BrowseByGenre = () => {
         <SectionHeaderTop>Browse</SectionHeaderTop>
         <SectionHeaderBot>by Genre</SectionHeaderBot>
         <CardGrid>
-          <LinkNoStyle to={{
-            pathname: '/genre',
-            genreProps: {
-              genre: 'Comedy'
-            }
-          }}>
+          <LinkNoStyle to="/genre/Comedy">
             <TextCard>Comedy</TextCard>
           </LinkNoStyle>
-          <LinkNoStyle to={{
-            pathname: '/genre',
-            genreProps: {
-              genre: 'Action'
-            }
-          }}>
+          <LinkNoStyle to="genre/Action">
             <TextCard>Action</TextCard>
           </LinkNoStyle>
-          <LinkNoStyle to={{
-            pathname: '/genre',
-            genreProps: {
-              genre: 'Drama'
-            }
-          }}>
+          <LinkNoStyle to="/genre/Drama">
             <TextCard>Drama</TextCard>
           </LinkNoStyle>
-          <LinkNoStyle to={{
-            pathname: '/genre',
-            genreProps: {
-              genre: 'Crime'
-            }
-          }}>
+          <LinkNoStyle to="/genre/Crime">
             <TextCard>True Crime</TextCard>
           </LinkNoStyle>
         </CardGrid>
