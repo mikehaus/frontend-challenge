@@ -8,7 +8,7 @@ import { Link, withRouter } from 'react-router-dom';
 // TODO: Button Uniform along bottom
 // TODO: Truncate Header 3 lines for device query text size
 const DetailsButton = styled.button `
-  position: relative;
+
   display: none;
   align-items: center;
   background: ${colors.blue};
@@ -63,8 +63,6 @@ const PosterCardImg = styled.div `
   }
 `;
 
-
-
 const PosterCardBorder = styled.div `
   background-color: transparent;
   margin: 20px 0px 5px 0px;
@@ -116,6 +114,9 @@ const PosterCardBorder = styled.div `
 `;
 
 const InfoBox = styled.div `
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
   margin: 15px 10px;
   z-index: 2;
@@ -244,7 +245,7 @@ const GenreTextBlock = styled.p `
   font-size: 14px;
   width: 90%;
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
 `;
 
 const TopFivePosterCard = (props) => {
@@ -290,7 +291,7 @@ const TopFivePosterCard = (props) => {
               View Details
             </DetailsButton>
           </Link>
-          </InfoBox>
+        </InfoBox>
       </PosterCardBorder>
     </div>
   );
