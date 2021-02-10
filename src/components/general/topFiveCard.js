@@ -13,11 +13,11 @@ const DetailsButton = styled.button `
   align-items: center;
   background: ${colors.blue};
   color: white;
-  margin: auto auto 0 auto;
+  margin: auto auto 5px auto;
   width: 100%;
   height: 47px;
   border-radius: 4px;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-weight: bold;
   font-size: 14px;
   border: none;
@@ -76,6 +76,7 @@ const PosterCardBorder = styled.div `
 
     ${DetailsButton} {
       display: block;
+      position: absolute;
     }
 
     background-color: white;
@@ -114,9 +115,7 @@ const PosterCardBorder = styled.div `
 `;
 
 const InfoBox = styled.div `
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  height: 40%;
   position: relative;
   margin: 15px 10px;
   z-index: 2;
@@ -245,7 +244,7 @@ const GenreTextBlock = styled.p `
   font-size: 14px;
   width: 90%;
   margin-bottom: 5px;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 const TopFivePosterCard = (props) => {
