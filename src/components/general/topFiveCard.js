@@ -75,8 +75,7 @@ const PosterCardBorder = styled.div `
     }
 
     ${DetailsButton} {
-      display: block;
-      position: absolute;
+      display: inline;
     }
 
     background-color: white;
@@ -124,16 +123,22 @@ const InfoBox = styled.div `
 const HeadingBox = styled.div `
   display: inline-block;
   overflow: hidden;
-  width: 70%;
+  width: 60%;
   overflow: hidden;
 `
 
 const CardHeading = styled.h2 `
   position: relative;
-  display: inline;
+  margin: -2px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100%;
   font-family: Roboto;
   font-weight: bold;
   color: ${colors.headerBlack};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media ${device.desktopL} { 
     font-size: 24px;
@@ -243,8 +248,7 @@ const GenreTextBlock = styled.p `
   color: ${colors.subheaderGray};
   font-size: 14px;
   width: 90%;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin: 5px 0;
 `;
 
 const TopFivePosterCard = (props) => {
