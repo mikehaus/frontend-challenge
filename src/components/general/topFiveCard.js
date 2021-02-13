@@ -3,10 +3,68 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { colors, device } from '../../styles/generalStyles';
 import Star from '../../assets/Star.svg';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-// TODO: Button Uniform along bottom
-// TODO: Truncate Header 3 lines for device query text size
+/*
+ *  Component: TopFiveCard
+ *  Description: Combined poster and info display for view in Top Five Grid
+ *  @Props: 
+ *  title: title of Movie
+ *  voteAvg: vote score average value
+ *  id: movie identifier value
+ *  url: url path to the image we are displaying
+ *  genres: array of genres from movie object
+ */
+
+
+const TopFivePosterCard = (props) => {
+
+  const [title, setTitle] = useState(null);
+  const [voteAvg, setVoteAvg] = useState(null);
+  const [id, setId] = useState(null);
+  const [posterPath, setPosterPath] = useState(null);
+
+  const genreStr = props.genres.join(', ');
+
+  useEffect(() => {
+    setTitle(props.title);
+    setVoteAvg(props.voteAvg);
+    setId(props.id);
+    setPosterPath(props.url);
+  }, []);
+
+  return (
+    <div>
+      <PosterCardBorder>
+        <PosterCardImg>
+          <img src={posterPath} alt="poster" />
+        </PosterCardImg>
+        <InfoBox>
+          <HeadingBox>
+            <CardHeading>
+              {title}
+            </CardHeading>
+          </HeadingBox>
+          <StarImage>
+            <img alt="star" src={Star} />
+          </StarImage>
+          <RatingText>
+            {voteAvg}
+          </RatingText>
+          <GenreTextBlock>
+            {genreStr}
+          </GenreTextBlock>
+          <Link to={`/detail/${id}`}>
+            <DetailsButton>
+              View Details
+            </DetailsButton>
+          </Link>
+        </InfoBox>
+      </PosterCardBorder>
+    </div>
+  );
+}
+
 const DetailsButton = styled.button `
 
   display: none;
@@ -75,7 +133,35 @@ const PosterCardBorder = styled.div `
     }
 
     ${DetailsButton} {
-      display: inline;
+      display: inline-block;
+      position: absolute;
+      margin-top: auto;
+      bottom: 40px;
+
+      @media ${device.desktopL} { 
+        bottom: 45px;
+      }
+      @media ${device.desktop} {
+        bottom: 45px;
+      }
+      @media ${device.laptopL} {
+        bottom: 20px;
+      }
+      @media ${device.laptop} {
+        bottom: 20px;
+      }
+      @media ${device.mobileL} {
+        height: 32px;
+        bottom: 0px;
+      }
+      @media ${device.mobileM} {
+        height: 32px;
+        bottom: 0px;
+      }
+      @media ${device.mobileS} {
+        height: 32px;
+        bottom: 0px;
+      }
     }
 
     background-color: white;
@@ -248,56 +334,8 @@ const GenreTextBlock = styled.p `
   color: ${colors.subheaderGray};
   font-size: 14px;
   width: 90%;
-  margin: 5px 0;
+  margin: 5px 0 20px 0;
 `;
 
-const TopFivePosterCard = (props) => {
-
-  const [title, setTitle] = useState(null);
-  const [voteAvg, setVoteAvg] = useState(null);
-  const [id, setId] = useState(null);
-  const [idStr, setIdStr] = useState(null);
-
-  const posterPath = props.url;
-  const genreStr = props.genres.join(', ');
-
-  useEffect(() => {
-    setTitle(props.title);
-    setVoteAvg(props.voteAvg);
-    setId(props.id);
-    setIdStr(`/detail/${props.id}`);
-  }, []);
-
-  return (
-    <div>
-      <PosterCardBorder>
-        <PosterCardImg>
-          <img src={posterPath} alt="poster" />
-        </PosterCardImg>
-        <InfoBox>
-          <HeadingBox>
-            <CardHeading>
-              {title}
-            </CardHeading>
-          </HeadingBox>
-          <StarImage>
-            <img alt="star" src={Star}/>
-          </StarImage>
-          <RatingText>
-            {voteAvg}
-          </RatingText>
-          <GenreTextBlock>
-            {genreStr}
-          </GenreTextBlock>
-          <Link to={`/detail/${id}`}>
-            <DetailsButton>
-              View Details
-            </DetailsButton>
-          </Link>
-        </InfoBox>
-      </PosterCardBorder>
-    </div>
-  );
-}
 
 export default TopFivePosterCard;

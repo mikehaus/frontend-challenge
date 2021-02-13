@@ -3,6 +3,27 @@ import styled from 'styled-components';
 import { colors as Color } from '../../styles/generalStyles';
 import Logo from '../../assets/Logo.svg';
 
+/*
+ *  Component: NavBar
+ *  Description: Main Navigation bar, used on top of all main components
+ *  @Props: None
+ */ 
+
+const NavBar = () => {
+
+  return(
+    <div>
+      <Nav>
+        <LogoBox>
+          <img src={Logo} alt="logo" width="24px" height="24px"/>
+        </LogoBox>
+        <NavHeader>Reel Cinema</NavHeader>
+      </Nav>
+      <NavSpacer />
+    </div>
+  );
+}
+
 const Nav = styled.div `
   width: 100vw;
   height: 72px;
@@ -39,20 +60,5 @@ const NavSpacer = styled.section `
   display: block;
   margin: 120px auto;
 `
-
-const NavBar = () => {
-
-  return(
-    <div>
-      <Nav>
-        <LogoBox>
-          <img src={Logo} alt="logo" width="24px" height="24px"/>
-        </LogoBox>
-        <NavHeader>Reel Cinema</NavHeader>
-      </Nav>
-      <NavSpacer />
-    </div>
-  );
-}
 
 export default NavBar;

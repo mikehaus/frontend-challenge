@@ -1,6 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { device } from '../../styles/generalStyles';
+
+/*
+ *  Component: PosterCard
+ *  Description: General use PosterImage - No special styling
+ *  @Props: 
+ *  url: path to poster url
+ */
+
+
+const PosterCard = (props) => {
+
+  const [ posterPath, setPosterPath ] = useState(null);
+
+  useEffect(() => {
+    setPosterPath(props.url)
+  }, [])
+
+  const displayModal = () => {
+    console.log('clicked on poster')
+  }
+
+  return (
+    <div>
+      <PosterCardImg onClick={displayModal}>
+        <img src={posterPath} alt="poster" />
+      </PosterCardImg>
+    </div>
+  );
+}
 
 const PosterCardImg = styled.div `
   display: flex;
@@ -37,22 +66,5 @@ const PosterCardImg = styled.div `
     width: 111px;
   }
 `;
-
-const PosterCard = (props) => {
-
-  let posterPath = props.url;
-
-  const displayModal = () => {
-    
-  }
-
-  return (
-    <div>
-      <PosterCardImg onClick={displayModal}>
-        <img src={posterPath} alt="poster" />
-      </PosterCardImg>
-    </div>
-  );
-}
 
 export default PosterCard;
