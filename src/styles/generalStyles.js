@@ -23,10 +23,6 @@ const fonts = {
 
 const borderRadius = '4px';
 
-export const Container = styled.div `
-  margin: 0px 60px;
-`;
-
 const size = {
   mobileS: '320px',
   mobileM: '375px',
@@ -47,6 +43,15 @@ export const device = {
   desktopL: `(max-width: ${size.desktop})`
 };
 
+
+export const Container = styled.div `
+  @media ${device.desktop} {
+    margin: 0px 150px;
+  }
+  @media ${device.laptopL} {
+    margin: 0px 60px;
+  }
+`;
 
 // HEADERS
 const Header = styled.h1 `

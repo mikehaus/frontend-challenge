@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import { colors, device } from '../../styles/generalStyles';
+import { colors, device, PosterCardImg } from '../../styles/generalStyles';
 import Star from '../../assets/Star.svg';
 import { Link } from 'react-router-dom';
 
@@ -65,16 +65,6 @@ const TopFivePosterCard = (props) => {
   );
 }
 
-/*const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px'
-}*/
-
 const DetailsButton = styled.button `
 
   display: none;
@@ -92,42 +82,6 @@ const DetailsButton = styled.button `
   
   &:focus {
     outline: none;
-  }
-`;
-
-const PosterCardImg = styled.div `
-  display: flex;
-  border-radius: 4px;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
-  margin: 10px;
-
-  @media ${device.desktopL} { 
-    height: 527px;
-    width: 350px;
-  }
-  @media ${device.desktop} {
-    height: 337px;
-    width: 223px;
-  }
-  @media ${device.laptopL} {
-    height: 337px;
-    width: 223px;
-  }
-  @media ${device.laptop} {
-    height: 234px;
-    width: 155px;
-  }
-  @media ${device.mobileL} {
-    height: 168px;
-    width: 111px;
-  }
-  @media ${device.mobileM} {
-    height: 168px;
-    width: 111px;
-  }
-  @media ${device.mobileS} {
-    height: 168px;
-    width: 111px;
   }
 `;
 
