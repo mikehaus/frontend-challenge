@@ -9,6 +9,71 @@ import DetailInfoBlock from './detailInfoBlock';
 import NotFound from '../../notFound';
 import Avatar from '../../assets/Avatar.svg';
 
+const MovieDetailView = () => {
+
+  let match = useRouteMatch('/detail/:id');
+  let id = match.params.id
+  const { data, error, loading } = GetMovieById({ id });
+  let movie = data;
+  console.log(movie);
+
+  if (loading) return <div>Loading...</div>
+
+  if (!movie) return <NotFound />
+
+  return(
+    <div>
+      <NavBar />
+      <Container>
+        <MenuFlex>
+          <Link to="/">
+            <BackBtn>
+              <img src={BackArrow} alt='back' />
+            </BackBtn>
+          </Link>
+          <MainHeaderLeft>Movies: </MainHeaderLeft>
+          <MainHeaderRight>Top 5</MainHeaderRight>
+        </MenuFlex>
+        <DetailContainer>
+          <XlCard>
+            <img src={movie.posterPath} />
+          </XlCard>
+          <DetailInfoBlock voteAverage={movie.voteAverage} 
+                          title={movie.title} 
+                          releaseDate={movie.releaseDate} 
+                          director={movie.director.name} 
+                          genres={movie.genres} 
+                          overview={movie.overview} />
+        </DetailContainer>
+        <MenuFlex>
+          <MovieDetailHeader>
+            Cast
+          </MovieDetailHeader>
+        </MenuFlex>
+        <CardFlex>
+          {movie.cast.map(castMember => (
+            <li key={castMember.name}>
+              <CardBorder>
+              { castMember.profilePath ? (
+                <CastCard src={castMember.profilePath} alt={castMember.name} />
+              ) : (
+                <CastCard src={Avatar} alt="avatar" />
+              )}
+              <NameSubheader>
+                {castMember.name}
+              </NameSubheader>
+              <PlayingAsSubheader>
+                {castMember.character}
+              </PlayingAsSubheader>
+              </CardBorder> 
+            </li>
+          ))}
+        </CardFlex>
+      </Container>
+    </div>
+  );
+}
+
 const FlexDisplay = styled.div `
   display: flex;
   flex-direction: row;
@@ -246,70 +311,5 @@ const PlayingAsSubheader = styled.div `
     font-size: 12px;
   }
 `
-
-const MovieDetailView = () => {
-
-  let match = useRouteMatch('/detail/:id');
-  let id = match.params.id
-  const { data, error, loading } = GetMovieById({ id });
-  let movie = data;
-  console.log(movie);
-
-  if (loading) return <div>Loading...</div>
-
-  if (!movie) return <NotFound />
-
-  return(
-    <div>
-      <NavBar />
-      <Container>
-        <MenuFlex>
-          <Link to="/">
-            <BackBtn>
-              <img src={BackArrow} alt='back' />
-            </BackBtn>
-          </Link>
-          <MainHeaderLeft>Movies: </MainHeaderLeft>
-          <MainHeaderRight>Top 5</MainHeaderRight>
-        </MenuFlex>
-        <DetailContainer>
-          <XlCard>
-            <img src={movie.posterPath} />
-          </XlCard>
-          <DetailInfoBlock voteAverage={movie.voteAverage} 
-                          title={movie.title} 
-                          releaseDate={movie.releaseDate} 
-                          director={movie.director.name} 
-                          genres={movie.genres} 
-                          overview={movie.overview} />
-        </DetailContainer>
-        <MenuFlex>
-          <MovieDetailHeader>
-            Cast
-          </MovieDetailHeader>
-        </MenuFlex>
-        <CardFlex>
-          {movie.cast.map(castMember => (
-            <li key={castMember.name}>
-              <CardBorder>
-              { castMember.profilePath ? (
-                <CastCard src={castMember.profilePath} alt={castMember.name} />
-              ) : (
-                <CastCard src={Avatar} alt="avatar" />
-              )}
-              <NameSubheader>
-                {castMember.name}
-              </NameSubheader>
-              <PlayingAsSubheader>
-                {castMember.character}
-              </PlayingAsSubheader>
-              </CardBorder> 
-            </li>
-          ))}
-        </CardFlex>
-      </Container>
-    </div>
-  );
-}
 
 export default MovieDetailView;

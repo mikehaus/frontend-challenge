@@ -65,6 +65,16 @@ const TopFivePosterCard = (props) => {
   );
 }
 
+/*const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '2560px'
+}*/
+
 const DetailsButton = styled.button `
 
   display: none;
@@ -139,16 +149,19 @@ const PosterCardBorder = styled.div `
       bottom: 40px;
 
       @media ${device.desktopL} { 
-        bottom: 45px;
+        bottom: 50px;
       }
       @media ${device.desktop} {
-        bottom: 45px;
+        bottom: 50px;
       }
       @media ${device.laptopL} {
-        bottom: 20px;
+        bottom: 45px;
       }
       @media ${device.laptop} {
-        bottom: 20px;
+        bottom: 5px;
+      }
+      @media ${device.tablet} {
+        bottom: 5px;
       }
       @media ${device.mobileL} {
         height: 32px;
@@ -331,6 +344,10 @@ const RatingText = styled.p `
 
 const GenreTextBlock = styled.p `
   display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: ${colors.subheaderGray};
   font-size: 14px;
   width: 90%;
