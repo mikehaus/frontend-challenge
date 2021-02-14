@@ -94,7 +94,7 @@ const DetailsButton = styled.button `
 const PosterCardBorder = styled.div `
   background-color: transparent;
   position: relative;
-  margin: 20px 0px 5px 0px;
+  margin: 10px 0px 5px 0px;
   padding: 5px;
   height: auto;
 
@@ -113,7 +113,11 @@ const PosterCardBorder = styled.div `
         bottom: 125px;
       }
       @media ${device.desktop} {
-        bottom: 50px;
+        bottom: 125px;
+        //bottom: 50px;
+      }
+      @media ${device.fhd} {
+        bottom: 45px;
       }
       @media ${device.laptopL} {
         bottom: 45px;
@@ -148,6 +152,12 @@ const PosterCardBorder = styled.div `
     width: 370px;
   }
   @media ${device.desktop} {
+    height: 725px;
+    width: 370px;
+    //height: 526px;
+    //width: 243px;
+  }
+  @media ${device.fhd} {
     height: 526px;
     width: 243px;
   }
@@ -160,12 +170,12 @@ const PosterCardBorder = styled.div `
     width: 175px;
   }
   @media ${device.mobileL} {
-    height: 325px;
-    width: 131px;
+    height: 375px;
+    width: 155px;
   }
   @media ${device.mobileM} {
-    height: 325px;
-    width: 131px;
+    height: 375px;
+    width: 155px;
   }
   @media ${device.mobileS} {
     height: 325px;

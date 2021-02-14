@@ -53,15 +53,19 @@ const TextCard = styled.div `
   justify-content: center;
   align-items: center;
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   background: linear-gradient(-225deg, rgb(154, 76, 237) 0%, rgb(134, 127, 239) 46%, rgb(127, 199, 242) 100%);
 
   @media ${device.desktopL} {
-    height: 258px;
-    width: 400px;
+    height: 358px;
+    width: 500px;
   }
   @media ${device.desktop} {
+    height: 278px;
+    width: 450px;
+  }
+  @media ${device.fhd} {
     height: 202px;
     width: 312px;
   }

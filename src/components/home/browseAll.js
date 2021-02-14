@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { SectionHeaderBot, SectionHeaderTop, Container } from '../general/generalStyles';
+import { SectionHeaderBot, SectionHeaderTop, Container, device } from '../general/generalStyles';
 import styled from 'styled-components';
 import PosterCardGrid from '../general/posterCardGrid';
 import GetMoviesByFilter from '../../graphql/moviesByFilterQuery';
@@ -90,6 +90,10 @@ const SortByLabel = styled.h6 `
   color: rgb(143, 154, 162);
   font-size: 14px;
   margin-right: 10px;
+
+  @media ${device.mobileL} {
+    margin-right: 3px;
+  }
 `;
 
 // Drop down bar style
@@ -105,6 +109,10 @@ const SortByDropDown = styled.select `
 
   &:after {
     color: rgb(99, 114, 125);
+  }
+
+  @media ${device.mobileL} {
+    width: 145px;
   }
 `;
 

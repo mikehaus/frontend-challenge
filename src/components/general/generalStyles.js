@@ -55,16 +55,19 @@ export const device = {
 // Main Container takes care of app margins
 export const Container = styled.div `
   @media ${device.desktopL} {
-    margin: 0px 640px;
+    margin: 0px 550px;
   }
   @media ${device.desktop} {
-    margin: 0px 400px;
+    margin: 0px 150px;
   }
   @media ${device.fhd} {
     margin: 0px 200px;
   }
   @media ${device.laptopL} {
     margin: 0px 60px;
+  }
+  @media ${device.mobileL} {
+    margin: 0px 40px;
   }
 `;
 
@@ -82,10 +85,10 @@ const MainHeader = styled(Header) `
   display: inline-block;
 
   @media ${device.desktopL} {
-    font-size: 32px;
+    font-size: 40px;
   }
   @media ${device.desktop} {
-    font-size: 32px;
+    font-size: 35px;
   }
   @media ${device.laptopL} {
     font-size: 28px;
@@ -124,10 +127,10 @@ export const SectionHeaderTop = styled.h1 `
   margin: 0px;
 
   @media ${device.desktopL} {
-    font-size: 24px;
+    font-size: 28px;
   }
   @media ${device.desktop} {
-    font-size: 24px;
+    font-size: 28px;
   }
   @media ${device.laptopL} {
     font-size: 24px;
@@ -152,16 +155,16 @@ export const SectionHeaderBot = styled.h1 `
   font-family: ${fonts.mainFontFamily};
   font-weight: ${fonts.bold};
   color: ${colors.headerBlack};
-  margin: 5px 0px 20px 0px;
+  margin: 5px 0px 10px 0px;
 
   @media ${device.desktopL} {
-    font-size: 32px;
+    font-size: 46px;
   }
   @media ${device.desktop} {
-    font-size: 32px;
+    font-size: 46px;
   }
   @media ${device.laptopL} {
-    font-size: 32px;
+    font-size: 40px;
   }
   @media ${device.laptop} {
     font-size: 32px;
@@ -191,12 +194,19 @@ export const PosterCardImg = styled.div `
   border-radius: 4px;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
   margin: 10px;
+  position: relative;
 
   @media ${device.desktopL} { 
     height: 527px;
     width: 350px;
   }
   @media ${device.desktop} {
+    height: 527px;
+    width: 350px;
+    //height: 337px;
+    //width: 223px;
+  }
+  @media ${device.fhd} {
     height: 337px;
     width: 223px;
   }
@@ -209,16 +219,16 @@ export const PosterCardImg = styled.div `
     width: 155px;
   }
   @media ${device.mobileL} {
-    height: 168px;
-    width: 111px;
+    height: 234px;
+    width: 155px;
   }
   @media ${device.mobileM} {
-    height: 168px;
-    width: 111px;
+    height: 200px;
+    width: 130px;
   }
   @media ${device.mobileS} {
-    height: 168px;
-    width: 111px;
+    height: 175px;
+    width: 115px;
   }
 `;
 
