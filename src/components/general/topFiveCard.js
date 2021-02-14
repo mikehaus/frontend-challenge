@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { colors, device, PosterCardImg } from './generalStyles';
@@ -21,20 +20,20 @@ import { Link } from 'react-router-dom';
  */
 
 
-const TopFivePosterCard = (props) => {
+const TopFivePosterCard = ({ title, voteAvg, id, url, genres }) => {
 
-  const [title, setTitle] = useState(null);
-  const [voteAvg, setVoteAvg] = useState(null);
-  const [id, setId] = useState(null);
+  const [movieTitle, setTitle] = useState(null);
+  const [movieVoteAvg, setVoteAvg] = useState(null);
+  const [movieId, setId] = useState(null);
   const [posterPath, setPosterPath] = useState(null);
 
-  const genreStr = props.genres.join(', ');
+  const genreStr = genres.join(', ');
 
   useEffect(() => {
-    setTitle(props.title);
-    setVoteAvg(props.voteAvg);
-    setId(props.id);
-    setPosterPath(props.url);
+    setTitle(title);
+    setVoteAvg(voteAvg);
+    setId(id);
+    setPosterPath(url);
   }, []);
 
   return (
@@ -46,19 +45,19 @@ const TopFivePosterCard = (props) => {
         <InfoBox>
           <HeadingBox>
             <CardHeading>
-              {title}
+              {movieTitle}
             </CardHeading>
           </HeadingBox>
           <StarImage>
             <img alt="star" src={Star} />
           </StarImage>
           <RatingText>
-            {voteAvg}
+            {movieVoteAvg}
           </RatingText>
           <GenreTextBlock>
             {genreStr}
           </GenreTextBlock>
-          <Link to={`/detail/${id}`}>
+          <Link to={`/detail/${movieId}`}>
             <DetailsButton>
               View Details
             </DetailsButton>

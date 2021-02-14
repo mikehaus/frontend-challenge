@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { device, PosterCardImg } from './generalStyles';
+import { useState, useEffect } from 'react';
+import { PosterCardImg } from './generalStyles';
 
 /*
  *  Component: PosterCard

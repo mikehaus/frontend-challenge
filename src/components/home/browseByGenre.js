@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Container, SectionHeaderTop, SectionHeaderBot, CardGrid, device } from '../general/generalStyles';
 import { Link } from 'react-router-dom';

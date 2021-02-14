@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Star from '../../assets/Star.svg';
 import { colors, device } from '../general/generalStyles';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { SectionHeaderBot, SectionHeaderTop, Container, device } from '../general/generalStyles';
 import styled from 'styled-components';

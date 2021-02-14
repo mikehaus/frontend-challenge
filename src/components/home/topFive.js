@@ -1,4 +1,3 @@
-import React from 'react';
 import { MainHeaderLeft, MainHeaderRight, Container } from '../general/generalStyles';
 import getTopFiveMovies from '../../graphql/topFiveQuery';
 import PosterCardGrid from '../general/posterCardGrid';

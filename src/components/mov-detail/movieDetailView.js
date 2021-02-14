@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import NavBar from '../general/navBar';
 import { Container, MainHeaderLeft, MainHeaderRight, device, colors, Loading } from '../general/generalStyles';
@@ -105,7 +104,7 @@ const MenuFlex = styled(FlexDisplay) `
 
 // cast card flex container
 const CardFlex = styled(FlexDisplay) `
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: space-between;
   list-style: none;
 `;
@@ -113,7 +112,7 @@ const CardFlex = styled(FlexDisplay) `
 // Cast Card sizing styles for holding image and info headers
 const CardBorder = styled.div `
   position: relative;
-  margin: 5px;
+  margin: 25px 15px;
   @media ${device.desktopL} { 
     height: 275px;
     width: 200px;

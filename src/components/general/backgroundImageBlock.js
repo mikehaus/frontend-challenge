@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Dots from '../../assets/Dots.svg';
 import { device } from '../general/generalStyles';
