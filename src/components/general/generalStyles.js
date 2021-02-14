@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+/*
+ * Main Repository of commonly used styled components.
+ * Catch all and replacement for CSS styling
+ * Mostly for Headings, size classes, Formatting
+ */
+
+
+// general colors
 export const colors = {
   blue: 'rgb(34, 69, 225)',
   white: 'rgb(255, 255, 255)', 
@@ -10,10 +18,7 @@ export const colors = {
   bgWhite: '#d8d8d8',
 }
 
-const boxShadows = {
-  boxShadowPoster: '0px 2px 8px 0px rgba(0, 0, 0, 0.5)',
-}
-
+// general font types
 const fonts = {
   mainFontFamily: 'Roboto',
   mainBoldFamily: 'Roboto-bold',
@@ -21,8 +26,7 @@ const fonts = {
   thin: '300',
 }
 
-const borderRadius = '4px';
-
+// Size classes for media queries
 const size = {
   mobileS: '320px',
   mobileM: '375px',
@@ -30,8 +34,11 @@ const size = {
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
-  desktop: '2560px'
+  desktop: '2560px',
+  desktopL: '3840px',
 }
+
+// device object for use externally based on size classes
 export const device = {
   mobileS: `(max-width: ${size.mobileS})`,
   mobileM: `(max-width: ${size.mobileM})`,
@@ -40,11 +47,14 @@ export const device = {
   laptop: `(max-width: ${size.laptop})`,
   laptopL: `(max-width: ${size.laptopL})`,
   desktop: `(max-width: ${size.desktop})`,
-  desktopL: `(max-width: ${size.desktop})`
+  desktopL: `(max-width: ${size.desktopL})`
 };
 
-
+// Main Container takes care of app margins
 export const Container = styled.div `
+  @media ${device.desktopL} {
+    margin: 0px 640px;
+  }
   @media ${device.desktop} {
     margin: 0px 150px;
   }
@@ -54,12 +64,15 @@ export const Container = styled.div `
 `;
 
 // HEADERS
+
+// Base Header Component
 const Header = styled.h1 `
   font-family: ${fonts.mainFontFamily};
   font-weight: ${fonts.bold};
   margin: 0;
-`
+`;
 
+// Base Main Header, used for Top Five, Genre View, Movie Detail View
 const MainHeader = styled(Header) `
   display: inline-block;
 
@@ -86,15 +99,18 @@ const MainHeader = styled(Header) `
   }
 `;
 
+// Left side of main headers
 export const MainHeaderLeft = styled(MainHeader) `
   color: ${colors.headerGray};
 `;
 
+// Right side of main headers
 export const MainHeaderRight = styled(MainHeader) `
   margin-left: 5px;
   color: ${colors.headerBlack};
-`
+`;
 
+// For BBG and MBA components
 export const SectionHeaderTop = styled.h1 `
   display: block;
   font-family: ${fonts.mainFontFamily};
@@ -125,6 +141,7 @@ export const SectionHeaderTop = styled.h1 `
   }
 `;
 
+// For BBG and MBA components
 export const SectionHeaderBot = styled.h1 `
   display: inline-block;
   font-family: ${fonts.mainFontFamily};
@@ -155,30 +172,7 @@ export const SectionHeaderBot = styled.h1 `
   }
 `;
 
-export const MainText = styled.div `
-  @media ${device.desktopL} {
-    font-size: 18px;
-  }
-  @media ${device.desktop} {
-    font-size: 18px;
-  }
-  @media ${device.laptopL} {
-    font-size: 16px;
-  }
-  @media ${device.laptop} {
-    font-size: 16px;
-  }
-  @media ${device.mobileL} {
-    font-size: 14px;
-  }
-  @media ${device.mobileM} {
-    font-size: 14px;
-  }
-  @media ${device.mobileS} {
-    font-size: 14px;
-  }
-`;
-
+// Basic flex grid for cards
 export const CardList = styled.div `
   display: flex;
   flex-direction: row;
@@ -186,6 +180,7 @@ export const CardList = styled.div `
   justify-content: space-around;
 `;
 
+// Image class for poster cards. Determines sizing on different screen widths. Used in all main component views
 export const PosterCardImg = styled.div `
   display: flex;
   border-radius: 4px;
@@ -222,6 +217,7 @@ export const PosterCardImg = styled.div `
   }
 `;
 
+// Slightly different Gri
 export const CardGrid = styled.div `
   display: flex;
   flex-direction: row;
@@ -229,4 +225,17 @@ export const CardGrid = styled.div `
   justify-content: space-between;
   width: 100vw - 120px;
   margin: 0 auto;
+`;
+
+// Basic Loading screen while waiting for props info to populate
+export const Loading = styled.div `
+  width: 100%;
+  height: 500px;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  margin: 60px;
+  justify-content: center;
 `;

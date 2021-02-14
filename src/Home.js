@@ -3,6 +3,7 @@ import NavBar from './components/general/navBar';
 import TopFive from './components/home/topFive';
 import BrowseByGenre from './components/home/browseByGenre';
 import BrowseAll from './components/home/browseAll';
+import BackgroundImageBlock from './components/general/backgroundImageBlock';
 
 /**
  * You have the option to use either REST
@@ -18,6 +19,7 @@ const Home = () => {
   return (
     <div>
       <NavBar />
+        <BackgroundImageBlock />
         <TopFive />
         <BrowseByGenre />
         <BrowseAll />

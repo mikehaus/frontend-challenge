@@ -2,7 +2,7 @@ import Home from './Home';
 import GenreView from './components/genre/genreView';
 import MovieDetailView from './components/mov-detail/movieDetailView';
 import NotFound from './notFound';
-import { Route, Switch, useParams } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 /**
  * This function is used to simulate performance benchmarking.

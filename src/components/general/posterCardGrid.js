@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react';
-import styled from 'styled-components';
-import { CardGrid } from '../../styles/generalStyles';
+import { CardGrid, Loading } from './generalStyles';
 
 /*
  *  Component: PosterCardGrid
- *  Description: General use PosterImage - No special styling
+ *  Description: Grid used for both top five and main image grids
+ *  
+ *  About: Lazy imports poster images to improve load-time
+ * 
  *  @Props: 
  *  loading: boolean if loading from query
  *  data: Movie information array from query
@@ -44,17 +46,5 @@ const PosterCardGrid = ({ loading, data, error, isTopFive }) => {
     </div>
   );
 }
-
-const Loading = styled.div `
-  width: 100%;
-  height: 500px;
-  font-family: "Roboto";
-  font-weight: bold;
-  font-size: 45px;
-  display: flex;
-  align-items: center;
-  margin: 60px;
-  justify-content: center;
-`;
 
 export default PosterCardGrid;

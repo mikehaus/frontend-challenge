@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import { colors, device, PosterCardImg } from '../../styles/generalStyles';
+import { colors, device, PosterCardImg } from './generalStyles';
 import Star from '../../assets/Star.svg';
 import { Link } from 'react-router-dom';
 
 /*
  *  Component: TopFiveCard
  *  Description: Combined poster and info display for view in Top Five Grid
+ * 
  *  @Props: 
  *  title: title of Movie
  *  voteAvg: vote score average value
  *  id: movie identifier value
  *  url: url path to the image we are displaying
  *  genres: array of genres from movie object
+ * 
+ *  methods:
+ *  useEffect => Sets props initially
  */
 
 
@@ -65,6 +69,7 @@ const TopFivePosterCard = (props) => {
   );
 }
 
+// View Details button => Leads to MovieDetailView
 const DetailsButton = styled.button `
 
   display: none;
@@ -85,8 +90,10 @@ const DetailsButton = styled.button `
   }
 `;
 
+// Main Poster container => Allows for hovering reveal of DetailsButton and changes box shadow from poster image to outer border
 const PosterCardBorder = styled.div `
   background-color: transparent;
+  position: relative;
   margin: 20px 0px 5px 0px;
   padding: 5px;
   height: auto;
@@ -103,7 +110,7 @@ const PosterCardBorder = styled.div `
       bottom: 40px;
 
       @media ${device.desktopL} { 
-        bottom: 50px;
+        bottom: 125px;
       }
       @media ${device.desktop} {
         bottom: 50px;
@@ -166,6 +173,7 @@ const PosterCardBorder = styled.div `
   }
 `;
 
+// Main info container => for headings, star image, movie rating, genre details, details button
 const InfoBox = styled.div `
   height: 40%;
   position: relative;
@@ -173,6 +181,7 @@ const InfoBox = styled.div `
   z-index: 2;
 `;
 
+// Heading container => used for main header containment
 const HeadingBox = styled.div `
   display: inline-block;
   overflow: hidden;
@@ -180,6 +189,7 @@ const HeadingBox = styled.div `
   overflow: hidden;
 `
 
+// Heading box => Sets media query text sizes and overall styling of main movie title heading in top five box
 const CardHeading = styled.h2 `
   position: relative;
   margin: -2px 0;
@@ -216,6 +226,7 @@ const CardHeading = styled.h2 `
   }
 `;
 
+// Simple container for star image
 const StarImage = styled.div `
   display: inline-block;
   position: absolute;
@@ -262,6 +273,7 @@ const StarImage = styled.div `
   }
 `;
 
+// Simple container for rating text next to star image
 const RatingText = styled.p `
   position: absolute;
   top: 0;
@@ -296,6 +308,7 @@ const RatingText = styled.p `
   }
 `;
 
+// container for genre text. Handles line overflow and width
 const GenreTextBlock = styled.p `
   display: block;
   display: -webkit-box;
@@ -307,6 +320,5 @@ const GenreTextBlock = styled.p `
   width: 90%;
   margin: 5px 0 20px 0;
 `;
-
 
 export default TopFivePosterCard;

@@ -1,13 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavBar from '../general/navBar';
-import { Container, MainHeaderLeft, MainHeaderRight, device, colors } from '../../styles/generalStyles';
+import { Container, MainHeaderLeft, MainHeaderRight, device, colors, Loading } from '../general/generalStyles';
+import BackgroundImageBlock from '../general/backgroundImageBlock';
 import { Link, useRouteMatch } from 'react-router-dom';
 import BackArrow from '../../assets/BackArrow.svg';
 import GetMovieById from '../../graphql/movieByIdQuery';
 import DetailInfoBlock from './detailInfoBlock';
 import NotFound from '../../notFound';
 import Avatar from '../../assets/Avatar.svg';
+
+/*
+ *  Component: MovieDetailView
+ *  Description: Movie Detail Information container main view. Contains Movie image, detail info block, lower cast card grid
+ *  About: Gets info from routed url info  
+ * 
+ *  @Props:
+ *  :id => Movie identifier to allow gql query for movie by id
+ */
+
 
 const MovieDetailView = () => {
 
@@ -17,14 +28,15 @@ const MovieDetailView = () => {
   let movie = data;
   console.log(movie);
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return <Loading>Loading...</Loading>
 
-  if (!movie) return <NotFound />
+  if (!movie || error) return <NotFound />
 
   return(
     <div>
       <NavBar />
       <Container>
+        <BackgroundImageBlock />
         <MenuFlex>
           <Link to="/">
             <BackBtn>
@@ -36,7 +48,7 @@ const MovieDetailView = () => {
         </MenuFlex>
         <DetailContainer>
           <XlCard>
-            <img src={movie.posterPath} />
+            <img alt={movie.title} src={movie.posterPath} />
           </XlCard>
           <DetailInfoBlock voteAverage={movie.voteAverage} 
                           title={movie.title} 
@@ -74,16 +86,7 @@ const MovieDetailView = () => {
   );
 }
 
-/*const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px'
-}*/
-
+// main flex container
 const FlexDisplay = styled.div `
   display: flex;
   flex-direction: row;
@@ -93,18 +96,24 @@ const FlexDisplay = styled.div `
   background: white;
 `;
 
+// menu flex container
 const MenuFlex = styled(FlexDisplay) `
   margin-top: 60px;
   justify-content: flex-start;
+  position: relative
 `;
 
+// cast card flex container
 const CardFlex = styled(FlexDisplay) `
   margin-top: 20px;
   justify-content: space-between;
   list-style: none;
 `;
 
+// Cast Card sizing styles for holding image and info headers
 const CardBorder = styled.div `
+  position: relative;
+  margin: 5px;
   @media ${device.desktopL} { 
     height: 275px;
     width: 200px;
@@ -135,6 +144,7 @@ const CardBorder = styled.div `
   }
 `;
 
+// Cast card image box
 const CastCard = styled.img `
   display: flex;
   justify-content: center;
@@ -174,16 +184,22 @@ const CastCard = styled.img `
   }
 `;
 
+// Back button container
 const BackBtn = styled.div `
   display: flex;
+  position: relative;
   justify-content: center;
   margin: 5px 10px;
   width: 16px;
+  background-color: white;
+  z-index: 4;
   height: 16px;
 `;
 
+// flex box to hold movie detail section => helps with size proportions and resize issues
 const DetailContainer = styled.div `
   display: flex;
+  position: relative;
   justify-content: flex-start;
   height: 70%;  
   margin: 10px 10px 10px 0;
@@ -193,6 +209,7 @@ const DetailContainer = styled.div `
   }
 `;
 
+// Special type of poster card that's same as others BUT BIGGER
 const XlCard = styled.div `
 display: flex;
 border-radius: 4px;
@@ -230,6 +247,7 @@ object-fit: cover;
   }
 `;
 
+// Main header for Cast
 const MovieDetailHeader = styled.h1 `
   display: inline;
   font-family: "Roboto";
@@ -259,6 +277,7 @@ const MovieDetailHeader = styled.h1 `
   }
 `;
 
+// Cast Name style
 const NameSubheader = styled.div `
   color: ${colors.headerBlack};
   display: block;
@@ -291,6 +310,7 @@ const NameSubheader = styled.div `
   }
 `
 
+// Cast Character playing as header
 const PlayingAsSubheader = styled.div `
   color: ${colors.subheaderGray};
   display: inline-block;

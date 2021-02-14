@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { device } from '../../styles/generalStyles';
+import { device } from './generalStyles';
 
 /*
  *  Component: PosterCard
  *  Description: General use PosterImage - No special styling
  *  @Props: 
  *  url: path to poster url
+ * 
+ *  Methods:
+ * 
+ *  useEffect => on initial load sets the poster path
+ *  displayModal => On click, displays modal overlay (planned for implementation)
  */
 
 

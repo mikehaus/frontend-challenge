@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors as Color } from '../../styles/generalStyles';
+import { colors as Color } from './generalStyles';
 import Logo from '../../assets/Logo.svg';
 
 /*

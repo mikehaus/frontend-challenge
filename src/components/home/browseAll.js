@@ -1,54 +1,19 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { SectionHeaderBot, SectionHeaderTop, Container }from '../../styles/generalStyles';
+import { useState } from 'react';
+import { SectionHeaderBot, SectionHeaderTop, Container } from '../general/generalStyles';
 import styled from 'styled-components';
 import PosterCardGrid from '../general/posterCardGrid';
 import GetMoviesByFilter from '../../graphql/moviesByFilterQuery';
 
-const BrowseMargin = styled.div `
-  margin: 60px 0;
-`;
-
-const Menu = styled.div `
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Headers = styled.div `
-  justify-self: flex-start;
-`;
-
-const SelectSection = styled.form `
-  display: flex;
-  justify-self: flex-end;
-  align-items: center;
-  font-family: "Roboto";
-  font-weight: normal;
-`;
-
-const SortByLabel = styled.h6 `
-  display: inline;
-  color: rgb(143, 154, 162);
-  font-size: 14px;
-  margin-right: 10px;
-`;
-
-const SortByDropDown = styled.select `
-  padding: 10px;
-  display: inline;
-  background: white;
-  border-radius: 4px;
-  border: 1px solid rgb(228, 228, 228);
-  color: rgb(51, 51, 51);
-  height: 40px;
-  width: 164px;
-
-  &:after {
-    color: rgb(99, 114, 125);
-  }
-`;
+/*
+ *  Component: BrowseAll
+ *  Description: Homepage Browse All section - Contains header, filter, movie poster grid
+ *  About: Initally queries all movies based on specific filter, then uses data received to fill out PosterCardGrid
+ *  
+ *  @Methods:
+ * 
+ *  handleSelect => Sets sort category causes re-render 
+ */
 
 const BrowseAll = () => {
 
@@ -91,5 +56,56 @@ const BrowseAll = () => {
     </div>
   );
 }
+
+// Basic styling margin
+const BrowseMargin = styled.div `
+  margin: 60px 0;
+`;
+
+// Top menu flex grid container
+const Menu = styled.div `
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+// Headers container
+const Headers = styled.div `
+  justify-self: flex-start;
+`;
+
+// Selection box container
+const SelectSection = styled.form `
+  display: flex;
+  justify-self: flex-end;
+  align-items: center;
+  font-family: "Roboto";
+  font-weight: normal;
+`;
+
+// Sort by Label styling
+const SortByLabel = styled.h6 `
+  display: inline;
+  color: rgb(143, 154, 162);
+  font-size: 14px;
+  margin-right: 10px;
+`;
+
+// Drop down bar style
+const SortByDropDown = styled.select `
+  padding: 10px;
+  display: inline;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid rgb(228, 228, 228);
+  color: rgb(51, 51, 51);
+  height: 40px;
+  width: 164px;
+
+  &:after {
+    color: rgb(99, 114, 125);
+  }
+`;
 
 export default BrowseAll;
