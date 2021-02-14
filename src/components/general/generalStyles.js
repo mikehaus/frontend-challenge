@@ -34,6 +34,7 @@ const size = {
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
+  fhd: '1920px',
   desktop: '2560px',
   desktopL: '3840px',
 }
@@ -46,6 +47,7 @@ export const device = {
   tablet: `(max-width: ${size.tablet})`,
   laptop: `(max-width: ${size.laptop})`,
   laptopL: `(max-width: ${size.laptopL})`,
+  fhd: `(max-width: ${size.fhd})`,
   desktop: `(max-width: ${size.desktop})`,
   desktopL: `(max-width: ${size.desktopL})`
 };
@@ -56,7 +58,10 @@ export const Container = styled.div `
     margin: 0px 640px;
   }
   @media ${device.desktop} {
-    margin: 0px 150px;
+    margin: 0px 400px;
+  }
+  @media ${device.fhd} {
+    margin: 0px 200px;
   }
   @media ${device.laptopL} {
     margin: 0px 60px;
