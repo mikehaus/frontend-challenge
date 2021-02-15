@@ -87,7 +87,7 @@ const BackBtn = styled.div `
   display: inline;
   position: relative;
   background-color: white;
-  z-index: 3;
+  z-index: 2;
   margin: 0px 15px 5px 0px;
   width: 16px;
   height: 16px;

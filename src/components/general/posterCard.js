@@ -1,5 +1,7 @@
+import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { PosterCardImg } from './generalStyles';
+import Modal from './modal';
 
 /*
  *  Component: PosterCard
@@ -10,29 +12,59 @@ import { PosterCardImg } from './generalStyles';
  *  Methods:
  * 
  *  useEffect => on initial load sets the poster path
- *  displayModal => On click, displays modal overlay (planned for implementation)
+ *  displayModal => On click, displays modal overlay poster image
+ *  closeModal => closes modal display when clicking on screen again
  */
 
 
 const PosterCard = (props) => {
 
   const [ posterPath, setPosterPath ] = useState(null);
+  const [ modalOpen, setModalOpen ] = useState(false);
 
   useEffect(() => {
     setPosterPath(props.url)
-  }, [])
+  }, [modalOpen])
 
-  const displayModal = () => {
-    console.log('clicked on poster')
+  const displayModal = (e) => {
+    e.preventDefault();
+    console.log('opening');
+    setModalOpen(true);
+  }
+
+  const closeModal = () => {
+    console.log('closing');
+    setModalOpen(false);
   }
 
   return (
     <div>
-      <PosterCardImg onClick={displayModal}>
+      { modalOpen ? (
+        <div>
+          <ModalBG onClick={closeModal}>
+            <Modal posterPath={posterPath} />
+          </ModalBG>
+        </div>
+        ) : (
+          null
+        )     
+      }
+      <PosterCardImg onClick={displayModal}>   
         <img src={posterPath} alt="poster" />
       </PosterCardImg>
     </div>
   );
 }
+
+const ModalBG = styled.div `
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  width:100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+`;
+
 
 export default PosterCard;
