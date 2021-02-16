@@ -25,7 +25,6 @@ const MovieDetailView = () => {
   let id = match.params.id
   const { data, error, loading } = GetMovieById({ id });
   let movie = data;
-  console.log(movie);
 
   if (loading) return <Loading>Loading...</Loading>
 
