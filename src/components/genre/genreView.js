@@ -33,7 +33,6 @@ const GenreView = () => {
 
   const handleSelect = (event) => {
     setFilter(event.target.value);
-    console.log(event.target.value);
     movies = data;
   }
 
