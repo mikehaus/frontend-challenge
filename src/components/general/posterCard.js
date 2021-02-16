@@ -28,12 +28,10 @@ const PosterCard = (props) => {
 
   const displayModal = (e) => {
     e.preventDefault();
-    console.log('opening');
     setModalOpen(true);
   }
 
   const closeModal = () => {
-    console.log('closing');
     setModalOpen(false);
   }
 

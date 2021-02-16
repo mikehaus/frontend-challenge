@@ -1,6 +1,12 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { device } from './generalStyles';
+
+/*
+ *  Component: Modal
+ *  Description: Modal display that pops up on movie poster click
+ *  @Props: 
+ *  posterPath: url to poster
+ */
 
 const Modal = ({ posterPath }) => {
 

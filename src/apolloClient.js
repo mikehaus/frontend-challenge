@@ -4,7 +4,6 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
 import { withClientState } from 'apollo-link-state';
-import { offsetLimitPagination } from '@apollo/client/utilities';
 
 const memoryCache = new InMemoryCache();
 

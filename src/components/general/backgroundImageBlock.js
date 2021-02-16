@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import Dots from '../../assets/Dots.svg';
 import { device } from '../general/generalStyles';
 
-// Image background for dots along top
+/*
+ *  Component: BackgroundImageBlock
+ *  Description: Container for dots background images on top of each section
+ */
 
 const BackgroundImageBlock = () => {
   return (
