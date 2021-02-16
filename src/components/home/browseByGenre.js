@@ -73,8 +73,8 @@ const TextCard = styled.div `
     width: 312px;
   }
   @media ${device.laptop} {
-    height: 162px;
-    height: 250px;
+    width: 202px;
+    height: 130px;
   }
   @media ${device.mobileL} {
     width: 202px;
