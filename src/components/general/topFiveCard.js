@@ -129,7 +129,7 @@ const PosterCardBorder = styled.div `
       }
       @media ${device.mobileL} {
         height: 32px;
-        bottom: 0px;
+        bottom: 20px;
       }
       @media ${device.mobileM} {
         height: 32px;
@@ -169,8 +169,8 @@ const PosterCardBorder = styled.div `
     width: 175px;
   }
   @media ${device.mobileL} {
-    height: 375px;
-    width: 155px;
+    height: 400px;
+    width: 170px;
   }
   @media ${device.mobileM} {
     height: 375px;
